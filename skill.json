@@ -1,0 +1,45 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "summary": "Abgeordneten Watch",
+          "examplePhrases": [
+            "Alexa, starte Abgeordneten Watch und suche Angela Merkel",
+            "Alexa, starte Abgeordneten Watch und suche nach Wolfgang Schäuble",
+            "Alexa, starte Abgeordneten Watch und suche nach Heiko Maas"
+          ],
+          "keywords": [
+            "bundestag",
+            "abgeordneten watch",
+            "politik"
+          ],
+          "name": "Abgeordneten Watch",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d241/cdc94ad914564fad8676a01f4de8a860/APP_ICON?versionId=FtfFanwslS9e1vRDl05GzPJbBg2tF3Mc&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541165207&Signature=dvkKCJQGtuuS6r1nLiZhaJgcfeg%3D",
+          "description": "Zugriff auf Parlamentsdaten",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/59d1/44266fbf14a2437eb2d3bddab63c7c65/APP_ICON_LARGE?versionId=2EAs8grGF39KYueOjUtwPZPICCbUBeBF&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541165207&Signature=GatIWNcJxJVLzlMT60OJu%2FKs5Xs%3D"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "No special instructions.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "./src"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
