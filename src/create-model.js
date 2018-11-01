@@ -7,12 +7,15 @@ const MODEL_FILE = 'models/de-DE.json';
 const UTF8 = 'utf8';
 
 const SUPPORTED_PARLIAMENTS = [
+    /*
     'Baden-Württemberg',
     'Bayern',
     'Berlin',
     'Brandenburg',
     'Bremen',
+    */
     'Bundestag',
+    /*
     'EU',
     'Hamburg',
     'Hessen',
@@ -25,6 +28,7 @@ const SUPPORTED_PARLIAMENTS = [
     'Sachsen-Anhalt',
     'Schleswig-Holstein',
     'Thüringen',
+    */
 ];
 
 async function createModel() {
