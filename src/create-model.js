@@ -52,14 +52,13 @@ async function createModel() {
                     getCandidates
                         .then((result) => {
                             result.profiles.forEach(profile => {
-                                const id = parliament.meta.uuid + '/' + profile.meta.username;
+                                const id = /* parliament.meta.uuid + '/' + */ profile.meta.username;
                                 if (!listOfIDs.includes(id)) {
                                     listOfIDs.push(id);
                                     listOfCandidates.push({
                                         id: id,
                                         name: {
                                             value: profile.personal.first_name + ' ' + profile.personal.last_name,
-                                            synonyms: [ profile.personal.last_name ],
                                         },
                                     });
                                 }
