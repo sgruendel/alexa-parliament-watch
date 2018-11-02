@@ -9,8 +9,6 @@ const abgeordnetenwatch = require('./abgeordnetenwatchAPI');
 const utils = require('./utils');
 
 const SKILL_ID = 'amzn1.ask.skill.f63fec31-1d6c-4c66-87cb-c73d7d44729d';
-const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
-const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 
 const languageStrings = {
     de: {
@@ -34,103 +32,14 @@ const CandidateIntentHandler = {
         return request.type === 'IntentRequest' && request.intent.name === 'CandidateIntent';
     },
     async handle(handlerInput) {
-        const { request } = handlerInput.requestEnvelope;
-        // delegate to Alexa to collect all the required slots
-        if (request.dialogState && request.dialogState !== 'COMPLETED') {
-            console.log('dialog state is', request.dialogState, '=> adding delegate directive');
-            return handlerInput.responseBuilder
-                .addDelegateDirective()
-                .getResponse();
+        const data = utils.parseParliamentUsername(handlerInput);
+        if (data.response) {
+            return data.response;
         }
 
-        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-        const { slots } = request.intent;
-
-        console.log('candidate', JSON.stringify(slots.candidate));
-        // console.log('parliament', JSON.stringify(slots.parliament));
-
-        var rpa = slots.candidate
-            && slots.candidate.resolutions
-            && slots.candidate.resolutions.resolutionsPerAuthority[0];
-        switch (rpa.status.code) {
-        case ER_SUCCESS_NO_MATCH:
-            console.error('no match for candidate', slots.candidate.value);
-            const speechOutput = requestAttributes.t('Ich kann diesen Abgeordneten leider nicht finden.');
-            return handlerInput.responseBuilder
-                .speak(speechOutput)
-                .getResponse();
-
-        case ER_SUCCESS_MATCH:
-            if (rpa.values.length > 1) {
-                var prompt = 'Welcher Abgeordnete';
-                const size = rpa.values.length;
-
-                rpa.values.forEach((element, index) => {
-                    prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
-                });
-
-                prompt += '?';
-                return handlerInput.responseBuilder
-                    .speak(prompt)
-                    .reprompt(prompt)
-                    .addElicitSlotDirective(slots.candidate.name)
-                    .getResponse();
-            }
-            break;
-
-        default:
-            console.error('unexpected status code', rpa.status.code);
-        }
-        /*
-        console.log('parliament/username', rpa.values[0].value.id);
-        const parliamentUsername = rpa.values[0].value.id.split('/');
-        const parliament = parliamentUsername[0];
-        const username = parliamentUsername[1];
-        console.log('parliament/username', parliament, username);
-        */
-
-        /*
-        rpa = slots.parliament
-            && slots.parliament.resolutions
-            && slots.parliament.resolutions.resolutionsPerAuthority[0];
-        switch (rpa.status.code) {
-        case ER_SUCCESS_NO_MATCH:
-            console.error('no match for parliament', slots.parliament.value);
-            const speechOutput = requestAttributes.t('TODO');
-            return handlerInput.responseBuilder
-                .speak(speechOutput)
-                .getResponse();
-
-        case ER_SUCCESS_MATCH:
-            if (rpa.values.length > 1) {
-                prompt = 'Welches Parlament';
-                const size = rpa.values.length;
-
-                rpa.values.forEach((element, index) => {
-                    prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
-                });
-
-                prompt += '?';
-                return handlerInput.responseBuilder
-                    .speak(prompt)
-                    .reprompt(prompt)
-                    .addElicitSlotDirective(slots.parliament.name)
-                    .getResponse();
-            }
-            break;
-
-        default:
-            console.error('unexpected status code', rpa.status.code);
-        }
-        const parliament = rpa.values[0].value.id;
-        console.log('parliament/username', parliamentUsername);
-        */
-
-        const parliament = '60d0787f-e311-4283-a7fd-85b9f62a9b33'; // Bundestag
-        const username = rpa.values[0].value.id;
         try {
-            const result = await abgeordnetenwatch.getProfile(parliament, username);
-            const responseData = utils.getResponseData(result.profile);
+            const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
+            const responseData = utils.getCandidateResponseData(result.profile);
 
             return handlerInput.responseBuilder
                 .speak(responseData.speechOutput)
@@ -138,7 +47,123 @@ const CandidateIntentHandler = {
                 .getResponse();
         } catch (err) {
             console.error('Error getting candidate profile', err);
-            const speechOutput = requestAttributes.t('TODO');
+            const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .getResponse();
+        }
+    },
+};
+
+const AnswersIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'IntentRequest' && request.intent.name === 'AnswersIntent';
+    },
+    async handle(handlerInput) {
+        const data = utils.parseParliamentUsername(handlerInput);
+        if (data.response) {
+            return data.response;
+        }
+
+        try {
+            const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
+            const responseData = utils.getAnswerResponseData(result.profile);
+
+            return handlerInput.responseBuilder
+                .speak(responseData.speechOutput)
+                .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
+                .getResponse();
+        } catch (err) {
+            console.error('Error getting candidate profile', err);
+            const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .getResponse();
+        }
+    },
+};
+
+const VotesIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'IntentRequest' && request.intent.name === 'VotesIntent';
+    },
+    async handle(handlerInput) {
+        const data = utils.parseParliamentUsername(handlerInput);
+        if (data.response) {
+            return data.response;
+        }
+
+        try {
+            const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
+            const responseData = utils.getVotesResponseData(result.profile);
+
+            return handlerInput.responseBuilder
+                .speak(responseData.speechOutput)
+                .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
+                .getResponse();
+        } catch (err) {
+            console.error('Error getting candidate profile', err);
+            const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .getResponse();
+        }
+    },
+};
+
+const CommitteesIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'IntentRequest' && request.intent.name === 'CommitteesIntent';
+    },
+    async handle(handlerInput) {
+        const data = utils.parseParliamentUsername(handlerInput);
+        if (data.response) {
+            return data.response;
+        }
+
+        try {
+            const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
+            const responseData = utils.getCommitteesResponseData(result.profile);
+
+            return handlerInput.responseBuilder
+                .speak(responseData.speechOutput)
+                .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
+                .getResponse();
+        } catch (err) {
+            console.error('Error getting candidate profile', err);
+            const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .getResponse();
+        }
+    },
+};
+
+const SidejobsIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'IntentRequest' && request.intent.name === 'SidejobsIntent';
+    },
+    async handle(handlerInput) {
+        const data = utils.parseParliamentUsername(handlerInput);
+        if (data.response) {
+            return data.response;
+        }
+
+        try {
+            const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
+            const responseData = utils.getSidejobsResponseData(result.profile);
+
+            return handlerInput.responseBuilder
+                .speak(responseData.speechOutput)
+                .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
+                .getResponse();
+        } catch (err) {
+            console.error('Error getting candidate profile', err);
+            const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
                 .getResponse();
@@ -220,6 +245,10 @@ const LocalizationInterceptor = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         CandidateIntentHandler,
+        AnswersIntentHandler,
+        VotesIntentHandler,
+        CommitteesIntentHandler,
+        SidejobsIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler)
