@@ -20,8 +20,8 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
-                says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-                reprompts: 'Wie kann ich dir helfen?',
+                says: 'Du kannst sagen, „Suche Abgeordnetenname“, oder du kannst sagen „Fragen an Abgeordnetenname“, oder du kannst sagen „Abstimmungen von Abgeordnetenname“, oder du kannst sagen „Ausschüsse von Abgeordnetenname“, oder du kannst sagen „Nebentätigkeiten von Abgeordnetenname“, oder du kannst „Beenden“ sagen. Was soll ich tun?',
+                reprompts: 'Was soll ich tun?',
                 shouldEndSession: false,
             },
         ]);
@@ -31,8 +31,8 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-                reprompts: 'Wie kann ich dir helfen?',
+                says: 'Du kannst sagen, „Suche Abgeordnetenname“, oder du kannst sagen „Fragen an Abgeordnetenname“, oder du kannst sagen „Abstimmungen von Abgeordnetenname“, oder du kannst sagen „Ausschüsse von Abgeordnetenname“, oder du kannst sagen „Nebentätigkeiten von Abgeordnetenname“, oder du kannst „Beenden“ sagen. Was soll ich tun?',
+                reprompts: 'Was soll ich tun?',
                 shouldEndSession: false,
             },
         ]);
@@ -42,7 +42,7 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                says: 'Auf Wiedersehen!',
+                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -52,7 +52,7 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                says: 'Auf Wiedersehen!',
+                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);

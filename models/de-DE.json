@@ -48,6 +48,7 @@
                     }
                   ],
                   "samples": [
+                    "Fragen an {candidate}",
                     "nach Fragen an {candidate}",
                     "nach den Fragen an {candidate}",
                     "nach Antworten von {candidate}",
@@ -66,6 +67,7 @@
                     }
                   ],
                   "samples": [
+                    "Abstimmungen von {candidate}",
                     "nach Abstimmungen von {candidate}",
                     "nach den Abstimmungen von {candidate}",
                     "nach dem Abstimmungsverhalten von {candidate}",
@@ -87,6 +89,7 @@
                         }
                     ],
                     "samples": [
+                        "Ausschüsse von {candidate}",
                         "nach Ausschüssen von {candidate}",
                         "nach den Ausschüssen von {candidate}",
                         "nach Ausschussmitgliedschaften von {candidate}",
@@ -109,6 +112,7 @@
                     }
                   ],
                   "samples": [
+                    "Nebentätigkeiten von {candidate}",
                     "nach Nebentätigkeiten von {candidate}",
                     "nach den Nebentätigkeiten von {candidate}",
                     "welchen Nebentätigkeiten {candidate} nachgeht",
