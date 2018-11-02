@@ -5,7 +5,7 @@ const i18n = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
 const dashbot = process.env.DASHBOT_API_KEY ? require('dashbot')(process.env.DASHBOT_API_KEY).alexa : undefined;
 
-const abgeordnetenwatch = require('./abgeordnetenwatchAPI');
+const abgeordnetenwatch = require('./abgeordnetenwatch');
 const utils = require('./utils');
 
 const SKILL_ID = 'amzn1.ask.skill.f63fec31-1d6c-4c66-87cb-c73d7d44729d';

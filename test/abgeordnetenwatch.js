@@ -1,9 +1,9 @@
 'use strict';
 
 const expect = require('chai').expect;
-const abgeordnetenwatch = require('../src/abgeordnetenwatchAPI');
+const abgeordnetenwatch = require('../src/abgeordnetenwatch');
 
-describe('abgeordnetenwatchAPI', () => {
+describe('abgeordnetenwatch', () => {
     describe('#getParliaments()', () => {
         it('should return all parliaments', async function() {
             const result = await abgeordnetenwatch.getParliaments();

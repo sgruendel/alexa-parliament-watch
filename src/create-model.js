@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-const abgeordnetenwatch = require('./abgeordnetenwatchAPI');
+const abgeordnetenwatch = require('./abgeordnetenwatch');
 
 const MODEL_FILE = 'models/de-DE.json';
 const UTF8 = 'utf8';
