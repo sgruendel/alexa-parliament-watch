@@ -3,25 +3,25 @@
     "publishingInformation": {
       "locales": {
         "de-DE": {
-          "summary": "Abgeordneten Watch",
+          "summary": "Informieren Sie sich über Profil, Antworten auf Fragen, Abstimmungsverhalten, Ausschussmitgliedschaften und Nebentätigkeiten von Bundestagsabgeordneten.",
           "examplePhrases": [
             "Alexa, starte Abgeordneten Watch und suche Angela Merkel",
-            "Alexa, starte Abgeordneten Watch und suche nach Wolfgang Schäuble",
-            "Alexa, starte Abgeordneten Watch und suche nach Heiko Maas"
+            "Alexa, frage Abgeordneten Watch nach Nebentätigkeiten von Heiko Maas",
+            "Alexa, frage Abgeordneten Watch in welchen Ausschüssen Gregor Gysi sitzt"
           ],
           "keywords": [
             "bundestag",
-            "abgeordneten watch",
+            "abgeordnetenwatch",
             "politik"
           ],
           "name": "Abgeordneten Watch",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d241/cdc94ad914564fad8676a01f4de8a860/APP_ICON?versionId=FtfFanwslS9e1vRDl05GzPJbBg2tF3Mc&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541165207&Signature=dvkKCJQGtuuS6r1nLiZhaJgcfeg%3D",
-          "description": "Zugriff auf Parlamentsdaten",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/59d1/44266fbf14a2437eb2d3bddab63c7c65/APP_ICON_LARGE?versionId=2EAs8grGF39KYueOjUtwPZPICCbUBeBF&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541165207&Signature=GatIWNcJxJVLzlMT60OJu%2FKs5Xs%3D"
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d241/cdc94ad914564fad8676a01f4de8a860/APP_ICON?versionId=FtfFanwslS9e1vRDl05GzPJbBg2tF3Mc&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541259568&Signature=X%2BDWyibdlyT%2FbgIiFcQg9mbQm2E%3D",
+          "description": "Zugriff auf die Daten von abgeordnetenwatch.de von allen Abgeordneten der 19. Wahlperiode im Deutschen Bundestag.\n\nAufruf über\n\"Alexa, starte Abgeordneten Watch und suche Angela Merkel\"\noder\n\"Alexa, frage Abgeordneten Watch nach Antworten von Gregor Gysi\"\noder\n\"Alexa, frage Abgeordneten Watch nach Abstimmungen von Christian Lindner\"\noder\n\"Alexa, frage Abgeordneten Watch nach Ausschüssen von Claudia Roth\"\noder\n\"Alexa, frage Abgeordneten Watch nach Nebentätigkeiten von Heiko Maas\"\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-parliament-watch/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/59d1/44266fbf14a2437eb2d3bddab63c7c65/APP_ICON_LARGE?versionId=2EAs8grGF39KYueOjUtwPZPICCbUBeBF&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541259568&Signature=cXQVcN%2BmG7zBBeDXgRjiIDWxl3A%3D"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "No special instructions.",
+      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
     },
