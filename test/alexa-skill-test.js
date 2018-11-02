@@ -70,11 +70,9 @@ describe('Abgeordneten Watch Skill', () => {
     describe('CandidateIntent', () => {
         alexaTest.test([
             {
-                request: alexaTest.addEntityResolutionsToRequest(
+                request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('CandidateIntent', { candidate: 'Carsten Warnke' }),
-                    [
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Carsten Warnke', id: 'carsten-warnke' },
-                    ]),
+                    'candidate', LIST_OF_CANDIDATES, 'Carsten Warnke', 'carsten-warnke'),
                 says: 'Carsten Warnke ist Mitglied der Die PARTEI im Bundestag. Er wurde 1977 geboren, besitzt eine Ausbildung als bei der Konkurrenz? Unnötig und ist tätig als Turbopolitiker.',
                 shouldEndSession: true,
             },
@@ -89,6 +87,12 @@ describe('Abgeordneten Watch Skill', () => {
                 says: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 reprompts: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionNoMatchToRequest(
+                    alexaTest.getIntentRequest('CandidateIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
+                says: 'Ich kann diesen Abgeordneten leider nicht finden.',
+                shouldEndSession: true,
             },
         ]);
     });
