@@ -1,5 +1,17 @@
 'use strict';
 
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    transports: [
+        new winston.transports.Console({
+            format: winston.format.simple(),
+        }),
+    ],
+    exitOnError: false,
+});
+
 const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
 const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 const A_HREF_RE = new RegExp('<a[^>]*>([^<]*)</a>');
@@ -8,9 +20,11 @@ var exports = module.exports = {};
 
 exports.parseParliamentUsername = function(handlerInput) {
     const { request } = handlerInput.requestEnvelope;
+    logger.debug('request', request);
+
     // delegate to Alexa to collect all the required slots
     if (request.dialogState && request.dialogState !== 'COMPLETED') {
-        console.log('dialog state is', request.dialogState, '=> adding delegate directive');
+        logger.debug('dialog state is ' + request.dialogState + ' => adding delegate directive');
         return {
             response:
                 handlerInput.responseBuilder
@@ -22,15 +36,15 @@ exports.parseParliamentUsername = function(handlerInput) {
     // const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
     const { slots } = request.intent;
 
-    console.log('candidate', JSON.stringify(slots.candidate));
-    // console.log('parliament', JSON.stringify(slots.parliament));
+    logger.debug('candidate slot', slots.candidate);
+    // logger.debug('parliament slot', slots.parliament);
 
     var rpa = slots.candidate
         && slots.candidate.resolutions
         && slots.candidate.resolutions.resolutionsPerAuthority[0];
     switch (rpa.status.code) {
     case ER_SUCCESS_NO_MATCH:
-        console.error('no match for candidate', slots.candidate.value);
+        logger.error('no match for candidate ' + slots.candidate.value);
         const speechOutput = 'Ich kann diesen Abgeordneten leider nicht finden.';
         return {
             response:
@@ -41,6 +55,7 @@ exports.parseParliamentUsername = function(handlerInput) {
 
     case ER_SUCCESS_MATCH:
         if (rpa.values.length > 1) {
+            logger.info('multiple matches for ' + slots.candidate.value);
             var prompt = 'Welcher Abgeordnete';
             const size = rpa.values.length;
 
@@ -49,6 +64,7 @@ exports.parseParliamentUsername = function(handlerInput) {
             });
 
             prompt += '?';
+            logger.info('eliciting candidate slot: ' + prompt);
             return {
                 response:
                     handlerInput.responseBuilder
@@ -61,7 +77,7 @@ exports.parseParliamentUsername = function(handlerInput) {
         break;
 
     default:
-        console.error('unexpected status code', rpa.status.code);
+        logger.error('unexpected status code ' + rpa.status.code);
     }
     /*
     console.log('parliament/username', rpa.values[0].value.id);
@@ -221,7 +237,7 @@ exports.getVotesResponseData = function(profile) {
             break;
 
         default:
-            console.log('unknown vote', vote.vote);
+            logger.error('unknown vote ' + vote.vote);
         }
     });
 

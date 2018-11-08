@@ -4,6 +4,17 @@ const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
 const dashbot = process.env.DASHBOT_API_KEY ? require('dashbot')(process.env.DASHBOT_API_KEY).alexa : undefined;
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    transports: [
+        new winston.transports.Console({
+            format: winston.format.simple(),
+        }),
+    ],
+    exitOnError: false,
+});
 
 const abgeordnetenwatch = require('./abgeordnetenwatch');
 const utils = require('./utils');
@@ -16,6 +27,8 @@ const languageStrings = {
             HELP_MESSAGE: 'Du kannst sagen, „Suche Abgeordnetenname“, oder du kannst sagen „Fragen an Abgeordnetenname“, oder du kannst sagen „Abstimmungen von Abgeordnetenname“, oder du kannst sagen „Ausschüsse von Abgeordnetenname“, oder du kannst sagen „Nebentätigkeiten von Abgeordnetenname“, oder du kannst „Beenden“ sagen. Was soll ich tun?',
             HELP_REPROMPT: 'Was soll ich tun?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
+            UNKNOWN_CANDIDATE: 'Ich kenne diesen Abgeordneten leider nicht.',
+            NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
         },
     },
 };
@@ -40,7 +53,7 @@ const CandidateIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            console.error('Error getting candidate profile', err);
+            logger.error(err);
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -69,7 +82,7 @@ const AnswersIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            console.error('Error getting candidate profile', err);
+            logger.error(err);
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -98,7 +111,7 @@ const VotesIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            console.error('Error getting candidate profile', err);
+            logger.error(err);
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -127,7 +140,7 @@ const CommitteesIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            console.error('Error getting candidate profile', err);
+            logger.error(err);
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -156,7 +169,7 @@ const SidejobsIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            console.error('Error getting candidate profile', err);
+            logger.error(err);
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -168,16 +181,16 @@ const SidejobsIntentHandler = {
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
-        return request.type === 'LaunchRequest'
-            || (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.HelpIntent');
+        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-        const speechOutput = requestAttributes.t('HELP_MESSAGE');
-        const repromptSpeechOutput = requestAttributes.t('HELP_REPROMPT');
         return handlerInput.responseBuilder
-            .speak(speechOutput)
-            .reprompt(repromptSpeechOutput)
+            .speak(requestAttributes.t('HELP_MESSAGE'))
+            .reprompt(requestAttributes.t('HELP_REPROMPT'))
             .getResponse();
     },
 };
@@ -189,6 +202,9 @@ const CancelAndStopIntentHandler = {
             && (request.intent.name === 'AMAZON.CancelIntent' || request.intent.name === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('STOP_MESSAGE');
         return handlerInput.responseBuilder
@@ -202,7 +218,16 @@ const SessionEndedRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
     },
     handle(handlerInput) {
-        console.log('Session ended with reason:', handlerInput.requestEnvelope.request.reason);
+        const { request } = handlerInput.requestEnvelope;
+        try {
+            if (request.reason === 'ERROR') {
+                logger.error(request.error.type + ': ' + request.error.message);
+            }
+        } catch (err) {
+            logger.error(err, request);
+        }
+
+        logger.debug('session ended', request);
         return handlerInput.responseBuilder.getResponse();
     },
 };
@@ -212,10 +237,13 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.error('Error handled:', error);
+        logger.error(error.message,
+            { request: handlerInput.requestEnvelope.request, stack: error.stack, error: error });
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder
-            .speak('Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?')
-            .reprompt('Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?')
+            .speak(speechOutput)
+            .reprompt(speechOutput)
             .getResponse();
     },
 };
