@@ -55,14 +55,14 @@ describe('utils', () => {
             const result = utils.getAnswerResponseData(angelaMerkel.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Dr. Angela Merkel hat 104 Fragen erhalten und keine davon beantwortet.');
             expect(result.cardTitle, 'cardTitle').to.equal('Dr. Angela Merkel: Fragen und Antworten');
-            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel hat 104 Fragen erhalten und keine davon beantwortet.');
+            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel hat 104 Fragen erhalten und keine davon beantwortet.\n\nFoto Fotograf Laurence Chaperon, CC BY-SA 3.0 DE');
         });
 
         it('should work for Alexander Graf Lambsdorff', () => {
             const result = utils.getAnswerResponseData(alexanderGrafLambsdorff.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Alexander Graf Lambsdorff hat 8 Fragen erhalten und keine davon beantwortet.');
             expect(result.cardTitle, 'cardTitle').to.equal('Alexander Graf Lambsdorff: Fragen und Antworten');
-            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff hat 8 Fragen erhalten und keine davon beantwortet.');
+            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff hat 8 Fragen erhalten und keine davon beantwortet.\n\nFoto Graf Alexander Lambsdorff');
         });
     });
 
@@ -71,14 +71,14 @@ describe('utils', () => {
             const result = utils.getVotesResponseData(angelaMerkel.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Dr. Angela Merkel hat an 8 Abstimmungen teilgenommen, bei 5 mit Ja gestimmt, bei 3 mit Nein gestimmt und hat sich bei keiner enthalten.');
             expect(result.cardTitle, 'cardTitle').to.equal('Dr. Angela Merkel: Abstimmungsverhalten');
-            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel hat an 8 Abstimmungen teilgenommen, bei 5 mit Ja gestimmt, bei 3 mit Nein gestimmt und hat sich bei keiner enthalten.');
+            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel hat an 8 Abstimmungen teilgenommen, bei 5 mit Ja gestimmt, bei 3 mit Nein gestimmt und hat sich bei keiner enthalten.\n\nFoto Fotograf Laurence Chaperon, CC BY-SA 3.0 DE');
         });
 
         it('should work for Alexander Graf Lambsdorff', () => {
             const result = utils.getVotesResponseData(alexanderGrafLambsdorff.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Alexander Graf Lambsdorff hat an 34 Abstimmungen teilgenommen, bei 18 mit Ja gestimmt, bei 14 mit Nein gestimmt und hat sich bei 2 enthalten.');
             expect(result.cardTitle, 'cardTitle').to.equal('Alexander Graf Lambsdorff: Abstimmungsverhalten');
-            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff hat an 34 Abstimmungen teilgenommen, bei 18 mit Ja gestimmt, bei 14 mit Nein gestimmt und hat sich bei 2 enthalten.');
+            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff hat an 34 Abstimmungen teilgenommen, bei 18 mit Ja gestimmt, bei 14 mit Nein gestimmt und hat sich bei 2 enthalten.\n\nFoto Graf Alexander Lambsdorff');
         });
     });
 
@@ -87,14 +87,14 @@ describe('utils', () => {
             const result = utils.getCommitteesResponseData(angelaMerkel.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Dr. Angela Merkel ist in keinem Ausschuss vertreten.');
             expect(result.cardTitle, 'cardTitle').to.equal('Dr. Angela Merkel: Ausschussmitgliedschaften');
-            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel ist in keinem Ausschuss vertreten.');
+            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel ist in keinem Ausschuss vertreten.\n\nFoto Fotograf Laurence Chaperon, CC BY-SA 3.0 DE');
         });
 
         it('should work for Alexander Graf Lambsdorff', () => {
             const result = utils.getCommitteesResponseData(alexanderGrafLambsdorff.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Alexander Graf Lambsdorff ist in folgenden Ausschüssen vertreten: Ausschuss für die Angelegenheiten der Europäischen Union, Ausschuss für Menschenrechte und humanitäre Hilfe, Ausschuss für wirtschaftliche Zusammenarbeit und Entwicklung, Auswärtiger Ausschuss, Verteidigungsausschuss');
             expect(result.cardTitle, 'cardTitle').to.equal('Alexander Graf Lambsdorff: Ausschussmitgliedschaften');
-            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff ist in folgenden Ausschüssen vertreten: Ausschuss für die Angelegenheiten der Europäischen Union, Ausschuss für Menschenrechte und humanitäre Hilfe, Ausschuss für wirtschaftliche Zusammenarbeit und Entwicklung, Auswärtiger Ausschuss, Verteidigungsausschuss');
+            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff ist in folgenden Ausschüssen vertreten: Ausschuss für die Angelegenheiten der Europäischen Union, Ausschuss für Menschenrechte und humanitäre Hilfe, Ausschuss für wirtschaftliche Zusammenarbeit und Entwicklung, Auswärtiger Ausschuss, Verteidigungsausschuss\n\nFoto Graf Alexander Lambsdorff');
         });
     });
 
@@ -103,14 +103,14 @@ describe('utils', () => {
             const result = utils.getSidejobsResponseData(angelaMerkel.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Dr. Angela Merkel geht folgenden Nebentätigkeiten nach: 7 Aktivitäten ohne Einkünfte');
             expect(result.cardTitle, 'cardTitle').to.equal('Dr. Angela Merkel: Nebentätigkeiten');
-            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel geht folgenden Nebentätigkeiten nach: \n7 Aktivitäten ohne Einkünfte');
+            expect(result.cardContent, 'cardContent').to.equal('Dr. Angela Merkel geht folgenden Nebentätigkeiten nach: \n7 Aktivitäten ohne Einkünfte\n\nFoto Fotograf Laurence Chaperon, CC BY-SA 3.0 DE');
         });
 
         it('should work for Alexander Graf Lambsdorff', () => {
             const result = utils.getSidejobsResponseData(alexanderGrafLambsdorff.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Alexander Graf Lambsdorff geht folgenden Nebentätigkeiten nach: 3 Aktivitäten mit einmalig 3500-7000 €, eine Aktivität mit einmalig 7000-15000 € und 3 Aktivitäten ohne Einkünfte');
             expect(result.cardTitle, 'cardTitle').to.equal('Alexander Graf Lambsdorff: Nebentätigkeiten');
-            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff geht folgenden Nebentätigkeiten nach: \n3 Aktivitäten mit einmalig 3500-7000 €\neine Aktivität mit einmalig 7000-15000 €\n3 Aktivitäten ohne Einkünfte');
+            expect(result.cardContent, 'cardContent').to.equal('Alexander Graf Lambsdorff geht folgenden Nebentätigkeiten nach: \n3 Aktivitäten mit einmalig 3500-7000 €\neine Aktivität mit einmalig 7000-15000 €\n3 Aktivitäten ohne Einkünfte\n\nFoto Graf Alexander Lambsdorff');
         });
     });
 

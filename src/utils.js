@@ -131,6 +131,21 @@ function getName(profile) {
     return (profile.personal.degree ? profile.personal.degree + ' ' : '') + profile.personal.first_name + ' ' + profile.personal.last_name;
 }
 
+function getCopyright(profile) {
+    if (!profile.personal.picture.url || !profile.personal.picture.copyright) {
+        return undefined;
+    }
+
+    var copyright = profile.personal.picture.copyright;
+    if (copyright.startsWith('<p>')) {
+        copyright = copyright.slice(3, copyright.length - 4);
+    }
+    if (copyright.endsWith('</a>')) {
+        copyright = copyright.replace(A_HREF_RE, '$1');
+    }
+    return 'Foto ' + copyright;
+}
+
 exports.getCandidateResponseData = function(profile) {
     const name = getName(profile);
     var speechOutput = name;
@@ -173,15 +188,9 @@ exports.getCandidateResponseData = function(profile) {
     // replace trailing ", " with "."
     speechOutput = speechOutput.slice(0, speechOutput.length - 2) + '.';
 
-    if (profile.personal.picture.url && profile.personal.picture.copyright) {
-        var copyright = profile.personal.picture.copyright;
-        if (copyright.startsWith('<p>')) {
-            copyright = copyright.slice(3, copyright.length - 4);
-        }
-        if (copyright.endsWith('</a>')) {
-            copyright = copyright.replace(A_HREF_RE, '$1');
-        }
-        cardContent += '\n\nFoto ' + copyright;
+    const copyright = getCopyright(profile);
+    if (copyright) {
+        cardContent += '\n\n' + copyright;
     }
 
     return { speechOutput: speechOutput, cardTitle: name, cardContent: cardContent };
@@ -208,7 +217,12 @@ exports.getAnswerResponseData = function(profile) {
         speechOutput += ' und ' + getCountText(noOfAnswers, 'keine', 'eine') + ' davon beantwortet';
     }
     speechOutput += '.';
-    const cardContent = speechOutput;
+
+    var cardContent = speechOutput;
+    const copyright = getCopyright(profile);
+    if (copyright) {
+        cardContent += '\n\n' + copyright;
+    }
 
     return { speechOutput: speechOutput, cardTitle: name + ': Fragen und Antworten', cardContent: cardContent };
 };
@@ -252,7 +266,12 @@ exports.getVotesResponseData = function(profile) {
     } else {
         speechOutput += 'keiner Abstimmung teilgenommen.';
     }
-    const cardContent = speechOutput;
+
+    var cardContent = speechOutput;
+    const copyright = getCopyright(profile);
+    if (copyright) {
+        cardContent += '\n\n' + copyright;
+    }
 
     return { speechOutput: speechOutput, cardTitle: name + ': Abstimmungsverhalten', cardContent: cardContent };
 };
@@ -269,7 +288,12 @@ exports.getCommitteesResponseData = function(profile) {
     } else {
         speechOutput += 'in keinem Ausschuss vertreten.';
     }
-    const cardContent = speechOutput;
+
+    var cardContent = speechOutput;
+    const copyright = getCopyright(profile);
+    if (copyright) {
+        cardContent += '\n\n' + copyright;
+    }
 
     return { speechOutput: speechOutput, cardTitle: name + ': Ausschussmitgliedschaften', cardContent: cardContent };
 };
@@ -314,6 +338,11 @@ exports.getSidejobsResponseData = function(profile) {
     } else {
         speechOutput += 'keiner Nebentätigkeit nach.';
         cardContent = speechOutput;
+    }
+
+    const copyright = getCopyright(profile);
+    if (copyright) {
+        cardContent += '\n\n' + copyright;
     }
 
     return { speechOutput: speechOutput, cardTitle: name + ': Nebentätigkeiten', cardContent: cardContent };
