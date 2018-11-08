@@ -16,12 +16,13 @@ alexaTest.initialize(
 alexaTest.setLocale('de-DE');
 
 describe('Abgeordneten Watch Skill', () => {
-    describe('LaunchRequest', () => {
+
+    describe('ErrorHandler', () => {
         alexaTest.test([
             {
-                request: alexaTest.getLaunchRequest(),
-                says: 'Du kannst sagen, „Suche Abgeordnetenname“, oder du kannst sagen „Fragen an Abgeordnetenname“, oder du kannst sagen „Abstimmungen von Abgeordnetenname“, oder du kannst sagen „Ausschüsse von Abgeordnetenname“, oder du kannst sagen „Nebentätigkeiten von Abgeordnetenname“, oder du kannst „Beenden“ sagen. Was soll ich tun?',
-                reprompts: 'Was soll ich tun?',
+                request: alexaTest.getIntentRequest(''),
+                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
                 shouldEndSession: false,
             },
         ]);
@@ -31,9 +32,18 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                says: 'Du kannst sagen, „Suche Abgeordnetenname“, oder du kannst sagen „Fragen an Abgeordnetenname“, oder du kannst sagen „Abstimmungen von Abgeordnetenname“, oder du kannst sagen „Ausschüsse von Abgeordnetenname“, oder du kannst sagen „Nebentätigkeiten von Abgeordnetenname“, oder du kannst „Beenden“ sagen. Was soll ich tun?',
-                reprompts: 'Was soll ich tun?',
+                says: 'Ich kann dir mehr zu einem Abgeordneten im Bundestag sagen, oder du fragst mich nach „Nebentätigkeiten von“, „Ausschüsse von“, „Abstimmungen von“ oder „Fragen an“ einen bestimmten Abgeordneten. Über welchen Abgeordneten möchtest du etwas wissen?',
+                reprompts: 'Wie lautet der Name des Abgeordneten, über den oder die du etwas wissen möchtest?',
                 shouldEndSession: false,
+            },
+        ]);
+    });
+
+    describe('SessionEndedRequest', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getSessionEndedRequest(),
+                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
             },
         ]);
     });
@@ -58,11 +68,13 @@ describe('Abgeordneten Watch Skill', () => {
         ]);
     });
 
-    describe('SessionEndedRequest', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
-                request: alexaTest.getSessionEndedRequest(),
-                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+                request: alexaTest.getLaunchRequest(),
+                says: 'Über welchen Abgeordneten möchtest du etwas wissen?',
+                reprompts: 'Wie lautet der Name des Abgeordneten, über den oder die du etwas wissen möchtest?',
+                shouldEndSession: false,
             },
         ]);
     });
@@ -213,17 +225,6 @@ describe('Abgeordneten Watch Skill', () => {
                     alexaTest.getIntentRequest('SidejobsIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
                 says: 'Ich kann diesen Abgeordneten leider nicht finden.',
                 shouldEndSession: true,
-            },
-        ]);
-    });
-
-    describe('ErrorHandler', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getIntentRequest(''),
-                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?',
-                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?',
-                shouldEndSession: false,
             },
         ]);
     });

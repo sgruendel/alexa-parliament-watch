@@ -24,10 +24,10 @@ const SKILL_ID = 'amzn1.ask.skill.f63fec31-1d6c-4c66-87cb-c73d7d44729d';
 const languageStrings = {
     de: {
         translation: {
-            HELP_MESSAGE: 'Du kannst sagen, „Suche Abgeordnetenname“, oder du kannst sagen „Fragen an Abgeordnetenname“, oder du kannst sagen „Abstimmungen von Abgeordnetenname“, oder du kannst sagen „Ausschüsse von Abgeordnetenname“, oder du kannst sagen „Nebentätigkeiten von Abgeordnetenname“, oder du kannst „Beenden“ sagen. Was soll ich tun?',
-            HELP_REPROMPT: 'Was soll ich tun?',
+            HELP_MESSAGE: 'Ich kann dir mehr zu einem Abgeordneten im Bundestag sagen, oder du fragst mich nach „Nebentätigkeiten von“, „Ausschüsse von“, „Abstimmungen von“ oder „Fragen an“ einen bestimmten Abgeordneten. Über welchen Abgeordneten möchtest du etwas wissen?',
+            HELP_REPROMPT: 'Wie lautet der Name des Abgeordneten, über den oder die du etwas wissen möchtest?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
-            UNKNOWN_CANDIDATE: 'Ich kenne diesen Abgeordneten leider nicht.',
+            UNKNOWN_CANDIDATE: 'Ich kann diesen Abgeordneten leider nicht finden.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
         },
     },
@@ -36,7 +36,8 @@ const languageStrings = {
 const CandidateIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
-        return request.type === 'IntentRequest' && request.intent.name === 'CandidateIntent';
+        return request.type === 'LaunchRequest'
+            || (request.type === 'IntentRequest' && request.intent.name === 'CandidateIntent');
     },
     async handle(handlerInput) {
         const data = utils.parseParliamentUsername(handlerInput);

@@ -2,25 +2,25 @@
   "deploy_settings": {
     "default": {
       "skill_id": "amzn1.ask.skill.f63fec31-1d6c-4c66-87cb-c73d7d44729d",
-      "was_cloned": true,
+      "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "018323b80e2b0217784ed1d2051071cb"
+          "eTag": "b1dd51437b570279fbba6930c4d07592"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "06720092a554478230587d5001c7bad6"
+            "eTag": "b5e7ef6d1754bf2a81eba8a98ed0194f"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:1",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:2",
             "awsRegion": "eu-west-1",
             "functionName": "parliamentWatch",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "64fbfa0f-5129-4f30-b27b-a8121a28ea46"
+            "revisionId": "84ad8630-68e6-4e58-9396-5bfdcc2e4dba"
           }
         ]
       },
@@ -29,7 +29,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:1"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:2"
               }
             }
           }

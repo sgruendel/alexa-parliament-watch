@@ -33,9 +33,17 @@ exports.parseParliamentUsername = function(handlerInput) {
         };
     }
 
-    // const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-    const { slots } = request.intent;
-
+    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+    const slots = request.intent && request.intent.slots;
+    if (!slots) {
+        return {
+            response:
+                handlerInput.responseBuilder
+                    .speak('Über welchen Abgeordneten möchtest du etwas wissen?')
+                    .reprompt(requestAttributes.t('HELP_REPROMPT'))
+                    .getResponse(),
+        };
+    }
     logger.debug('candidate slot', slots.candidate);
     // logger.debug('parliament slot', slots.parliament);
 
