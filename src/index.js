@@ -54,7 +54,7 @@ const CandidateIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            logger.error(err);
+            logger.error(err.stack || err.toString());
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -83,7 +83,7 @@ const AnswersIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            logger.error(err);
+            logger.error(err.stack || err.toString());
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -112,7 +112,7 @@ const VotesIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            logger.error(err);
+            logger.error(err.stack || err.toString());
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -141,7 +141,7 @@ const CommitteesIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            logger.error(err);
+            logger.error(err.stack || err.toString());
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -170,7 +170,7 @@ const SidejobsIntentHandler = {
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
                 .getResponse();
         } catch (err) {
-            logger.error(err);
+            logger.error(err.stack || err.toString());
             const speechOutput = 'Es ist leider ein Fehler aufgetreten beim Ermitteln der Daten.';
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -225,7 +225,7 @@ const SessionEndedRequestHandler = {
                 logger.error(request.error.type + ': ' + request.error.message);
             }
         } catch (err) {
-            logger.error(err, request);
+            logger.error(err.stack || err.toString(), request);
         }
 
         logger.debug('session ended', request);
@@ -238,8 +238,9 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        logger.error(error.message,
-            { request: handlerInput.requestEnvelope.request, stack: error.stack, error: error });
+        const { request } = handlerInput.requestEnvelope;
+        logger.error(error.stack || error.toString(), request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder
