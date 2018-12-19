@@ -13,37 +13,37 @@ describe('utils', () => {
 
     // parseParliamentUsername() tested as part of alexa-skill-test.js
 
-    describe('#getCandidateResponseData()', () => {
+    describe('#getDeputyResponseData()', () => {
         it('should work for Angela Merkel', () => {
-            const result = utils.getCandidateResponseData(angelaMerkel.profile);
+            const result = utils.getDeputyResponseData(angelaMerkel.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Dr. Angela Merkel ist Mitglied der CDU im Bundestag. Sie wurde 1954 geboren, besitzt eine Ausbildung als Promovierte Physikerin und ist tätig als Bundeskanzlerin.');
             expect(result.cardTitle, 'cardTitle').to.equal('Dr. Angela Merkel');
             expect(result.cardContent, 'cardContent').to.equal('Im Bundestag für die CDU\ngeboren 1954\nAusbildung: Promovierte Physikerin\nTätigkeit: Bundeskanzlerin\n\nFoto Fotograf Laurence Chaperon, CC BY-SA 3.0 DE');
         });
 
-        it('should work for candidates without party, degree and education', () => {
-            const result = utils.getCandidateResponseData(christianeJagau.profile);
+        it('should work for deputies without party, degree and education', () => {
+            const result = utils.getDeputyResponseData(christianeJagau.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Christiane Jagau ist parteilos im Bundestag. Sie wurde 1962 geboren und ist tätig als Büroangestellte.');
             expect(result.cardTitle, 'cardTitle').to.equal('Christiane Jagau');
             expect(result.cardContent, 'cardContent').to.equal('parteilos im Bundestag\ngeboren 1962\nTätigkeit: Büroangestellte');
         });
 
-        it('should work for female candidates without birthyear', () => {
-            const result = utils.getCandidateResponseData(marionTerhalle.profile);
+        it('should work for female deputies without birthyear', () => {
+            const result = utils.getDeputyResponseData(marionTerhalle.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Marion Terhalle ist Mitglied der FDP im Bundestag. Sie ist tätig als Finanzwirtin.');
             expect(result.cardTitle, 'cardTitle').to.equal('Marion Terhalle');
             expect(result.cardContent, 'cardContent').to.equal('Im Bundestag für die FDP\nTätigkeit: Finanzwirtin');
         });
 
-        it('should work for male candidates without birthyear', () => {
-            const result = utils.getCandidateResponseData(christophMerkel.profile);
+        it('should work for male deputies without birthyear', () => {
+            const result = utils.getDeputyResponseData(christophMerkel.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Christoph Merkel ist Mitglied der AfD im Bundestag. Er besitzt eine Ausbildung als Jurist.');
             expect(result.cardTitle, 'cardTitle').to.equal('Christoph Merkel');
             expect(result.cardContent, 'cardContent').to.equal('Im Bundestag für die AfD\nAusbildung: Jurist');
         });
 
         it('should normalize copyright with HTML', () => {
-            const result = utils.getCandidateResponseData(alexanderGrafLambsdorff.profile);
+            const result = utils.getDeputyResponseData(alexanderGrafLambsdorff.profile);
             expect(result.speechOutput, 'speechOutput').to.equal('Alexander Graf Lambsdorff ist Mitglied der FDP im Bundestag. Er wurde 1966 geboren, besitzt eine Ausbildung als Geschichte und ist tätig als MdB.');
             expect(result.cardTitle, 'cardTitle').to.equal('Alexander Graf Lambsdorff');
             expect(result.cardContent, 'cardContent').to.equal('Im Bundestag für die FDP\ngeboren 1966\nAusbildung: Geschichte\nTätigkeit: MdB\n\nFoto Graf Alexander Lambsdorff');

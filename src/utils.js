@@ -44,26 +44,25 @@ exports.parseParliamentUsername = function(handlerInput) {
                     .getResponse(),
         };
     }
-    logger.debug('candidate slot', slots.candidate);
+    logger.debug('deputy slot', slots.deputy);
     // logger.debug('parliament slot', slots.parliament);
 
-    var rpa = slots.candidate
-        && slots.candidate.resolutions
-        && slots.candidate.resolutions.resolutionsPerAuthority[0];
+    var rpa = slots.deputy
+        && slots.deputy.resolutions
+        && slots.deputy.resolutions.resolutionsPerAuthority[0];
     switch (rpa.status.code) {
     case ER_SUCCESS_NO_MATCH:
-        logger.error('no match for candidate ' + slots.candidate.value);
-        const speechOutput = 'Ich kann diesen Abgeordneten leider nicht finden.';
+        logger.error('no match for deputy ' + slots.deputy.value);
         return {
             response:
                 handlerInput.responseBuilder
-                    .speak(speechOutput)
+                    .speak(requestAttributes.t('UNKNOWN_DEPUTY'))
                     .getResponse(),
         };
 
     case ER_SUCCESS_MATCH:
         if (rpa.values.length > 1) {
-            logger.info('multiple matches for ' + slots.candidate.value);
+            logger.info('multiple matches for ' + slots.deputy.value);
             var prompt = 'Welcher Abgeordnete';
             const size = rpa.values.length;
 
@@ -72,13 +71,13 @@ exports.parseParliamentUsername = function(handlerInput) {
             });
 
             prompt += '?';
-            logger.info('eliciting candidate slot: ' + prompt);
+            logger.info('eliciting deputy slot: ' + prompt);
             return {
                 response:
                     handlerInput.responseBuilder
                         .speak(prompt)
                         .reprompt(prompt)
-                        .addElicitSlotDirective(slots.candidate.name)
+                        .addElicitSlotDirective(slots.deputy.name)
                         .getResponse(),
             };
         }
@@ -154,7 +153,7 @@ function getCopyright(profile) {
     return 'Foto ' + copyright;
 }
 
-exports.getCandidateResponseData = function(profile) {
+exports.getDeputyResponseData = function(profile) {
     const name = getName(profile);
     var speechOutput = name;
     var commas = [];

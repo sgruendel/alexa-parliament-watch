@@ -15,9 +15,9 @@ describe('abgeordnetenwatch', () => {
         });
     });
 
-    describe('#getCandidates()', () => {
-        it('should return all candidates for Hamburg', async function() {
-            const result = await abgeordnetenwatch.getCandidates('eacf8eca-932f-4620-9668-7386013481a0');
+    describe('#getDeputies()', () => {
+        it('should return all deputies for Hamburg', async function() {
+            const result = await abgeordnetenwatch.getDeputies('eacf8eca-932f-4620-9668-7386013481a0');
             expect(result.profiles).to.have.length.above(99);
 
             result.profiles.forEach(profile => {

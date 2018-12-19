@@ -21,7 +21,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.\n\nChanges to previous version (Lambda version 2):\n* Add FallbackIntent handling",
+      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.\n\nChanges to previous version (Lambda version 2):\n* Add FallbackIntent handling\n* Add missing deputies that were voted to Bundestag by list",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
     },

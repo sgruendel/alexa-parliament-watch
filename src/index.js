@@ -27,17 +27,17 @@ const languageStrings = {
             HELP_MESSAGE: 'Ich kann dir mehr zu einem Abgeordneten im Bundestag sagen, oder du fragst mich nach „Nebentätigkeiten von“, „Ausschüsse von“, „Abstimmungen von“ oder „Fragen an“ einen bestimmten Abgeordneten. Über welchen Abgeordneten möchtest du etwas wissen?',
             HELP_REPROMPT: 'Wie lautet der Name des Abgeordneten, über den oder die du etwas wissen möchtest?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
-            UNKNOWN_CANDIDATE: 'Ich kann diesen Abgeordneten leider nicht finden.',
+            UNKNOWN_DEPUTY: 'Ich kann diesen Abgeordneten leider nicht finden.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
         },
     },
 };
 
-const CandidateIntentHandler = {
+const DeputyIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
         return request.type === 'LaunchRequest'
-            || (request.type === 'IntentRequest' && request.intent.name === 'CandidateIntent');
+            || (request.type === 'IntentRequest' && request.intent.name === 'DeputyIntent');
     },
     async handle(handlerInput) {
         const data = utils.parseParliamentUsername(handlerInput);
@@ -47,8 +47,9 @@ const CandidateIntentHandler = {
 
         try {
             const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
-            const responseData = utils.getCandidateResponseData(result.profile);
+            const responseData = utils.getDeputyResponseData(result.profile);
 
+            logger.info(responseData.cardContent);
             return handlerInput.responseBuilder
                 .speak(responseData.speechOutput)
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
@@ -78,6 +79,7 @@ const AnswersIntentHandler = {
             const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
             const responseData = utils.getAnswerResponseData(result.profile);
 
+            logger.info(responseData.cardContent);
             return handlerInput.responseBuilder
                 .speak(responseData.speechOutput)
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
@@ -107,6 +109,7 @@ const VotesIntentHandler = {
             const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
             const responseData = utils.getVotesResponseData(result.profile);
 
+            logger.info(responseData.cardContent);
             return handlerInput.responseBuilder
                 .speak(responseData.speechOutput)
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
@@ -136,6 +139,7 @@ const CommitteesIntentHandler = {
             const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
             const responseData = utils.getCommitteesResponseData(result.profile);
 
+            logger.info(responseData.cardContent);
             return handlerInput.responseBuilder
                 .speak(responseData.speechOutput)
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
@@ -165,6 +169,7 @@ const SidejobsIntentHandler = {
             const result = await abgeordnetenwatch.getProfile(data.parliament, data.username);
             const responseData = utils.getSidejobsResponseData(result.profile);
 
+            logger.info(responseData.cardContent);
             return handlerInput.responseBuilder
                 .speak(responseData.speechOutput)
                 .withStandardCard(responseData.cardTitle, responseData.cardContent, result.profile.personal.picture.url)
@@ -286,7 +291,7 @@ const LocalizationInterceptor = {
 
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
-        CandidateIntentHandler,
+        DeputyIntentHandler,
         AnswersIntentHandler,
         VotesIntentHandler,
         CommitteesIntentHandler,
