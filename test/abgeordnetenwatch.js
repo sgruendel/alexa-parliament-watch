@@ -28,7 +28,7 @@ describe('abgeordnetenwatch', () => {
     });
 
     describe('#getProfile()', () => {
-        it('should return profile for Angela Merkel', async function () {
+        it('should return profile for Angela Merkel', async function() {
             const result = await abgeordnetenwatch.getProfile('60d0787f-e311-4283-a7fd-85b9f62a9b33', 'angela-merkel');
             expect(result.profile).to.exist;
             expect(result.profile.personal.first_name).to.equal('Angela');
