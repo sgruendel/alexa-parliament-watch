@@ -39,11 +39,13 @@ describe('Abgeordneten Watch Skill', () => {
         ]);
     });
 
-    describe('SessionEndedRequest', () => {
+    describe('FallbackIntent', () => {
         alexaTest.test([
             {
-                request: alexaTest.getSessionEndedRequest(),
-                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+                request: alexaTest.getIntentRequest('AMAZON.FallbackIntent'),
+                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                shouldEndSession: false,
             },
         ]);
     });
@@ -64,6 +66,15 @@ describe('Abgeordneten Watch Skill', () => {
                 request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
                 says: '<say-as interpret-as="interjection">bis dann</say-as>.',
                 repromptsNothing: true, shouldEndSession: true,
+            },
+        ]);
+    });
+
+    describe('SessionEndedRequest', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getSessionEndedRequest(),
+                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
             },
         ]);
     });

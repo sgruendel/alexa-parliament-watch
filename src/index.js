@@ -196,6 +196,24 @@ const HelpIntentHandler = {
     },
 };
 
+const FallbackIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.FallbackIntent';
+    },
+    handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
+        return handlerInput.responseBuilder
+            .speak(speechOutput)
+            .reprompt(speechOutput)
+            .getResponse();
+    },
+};
+
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
@@ -274,6 +292,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         CommitteesIntentHandler,
         SidejobsIntentHandler,
         HelpIntentHandler,
+        FallbackIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler)
     .addRequestInterceptors(LocalizationInterceptor)

@@ -5,16 +5,16 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "b1dd51437b570279fbba6930c4d07592"
+          "eTag": "4ec6add51563385d559a0e307ceb1cd0"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "b5e7ef6d1754bf2a81eba8a98ed0194f"
+            "eTag": "e4e2a9596eeffd576cee273f06ccb62a"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:2",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:3",
             "awsRegion": "eu-west-1",
             "functionName": "parliamentWatch",
             "alexaUsage": [
@@ -29,7 +29,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:2"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:3"
               }
             }
           }
