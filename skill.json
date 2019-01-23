@@ -21,7 +21,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.\n\nChanges to previous lambda version (v1):\n* Optimised LaunchRequest and HelpIntent\n* Add photo copyright to every card content",
+      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.\n\nChanges to previous version (Lambda version 2):\n* Add FallbackIntent handling\n* Add missing deputies that were voted to Bundestag by list",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
     },

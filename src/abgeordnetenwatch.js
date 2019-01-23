@@ -17,9 +17,9 @@ exports.getParliaments = async function() {
     return apiRequest(options);
 };
 
-exports.getCandidates = async function(uuid) {
+exports.getDeputies = async function(uuid) {
     const options = {
-        uri: 'parliament/' + uuid + '/candidates.json',
+        uri: 'parliament/' + uuid + '/deputies.json',
     };
     return apiRequest(options);
 };

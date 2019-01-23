@@ -36,10 +36,10 @@ async function createModel() {
 
     var promises = [];
     var listOfParliaments = [];
-    var listOfCandidates = [];
+    var listOfDeputies = [];
     var listOfIDs = [];
     getParliaments
-        .then((result) => {
+        .then(result => {
             result.parliaments.forEach(parliament => {
                 if (SUPPORTED_PARLIAMENTS.includes(parliament.name)) {
                     listOfParliaments.push({
@@ -47,15 +47,15 @@ async function createModel() {
                         name: { value: parliament.name },
                     });
 
-                    const getCandidates = abgeordnetenwatch.getCandidates(parliament.meta.uuid);
-                    promises.push(getCandidates);
-                    getCandidates
-                        .then((result) => {
+                    const getDeputies = abgeordnetenwatch.getDeputies(parliament.meta.uuid);
+                    promises.push(getDeputies);
+                    getDeputies
+                        .then(result => {
                             result.profiles.forEach(profile => {
                                 const id = /* parliament.meta.uuid + '/' + */ profile.meta.username;
                                 if (!listOfIDs.includes(id)) {
                                     listOfIDs.push(id);
-                                    listOfCandidates.push({
+                                    listOfDeputies.push({
                                         id: id,
                                         name: {
                                             value: profile.personal.first_name + ' ' + profile.personal.last_name,
@@ -79,8 +79,8 @@ async function createModel() {
     console.log('waiting for', promises);
     await Promise.all(promises);
 
-    // sort candidates by name to guarantee stable order when regenerating
-    listOfCandidates.sort((a, b) => a.id > b.id ? 1 : ((b.id > a.id) ? -1 : 0));
+    // sort deputies by name to guarantee stable order when regenerating
+    listOfDeputies.sort((a, b) => a.id > b.id ? 1 : ((b.id > a.id) ? -1 : 0));
 
     model.interactionModel.languageModel.types = [
         {
@@ -88,8 +88,8 @@ async function createModel() {
             values: listOfParliaments,
         },
         {
-            name: 'LIST_OF_CANDIDATES',
-            values: listOfCandidates,
+            name: 'LIST_OF_DEPUTIES',
+            values: listOfDeputies,
         },
     ];
     // serialize new interaction model

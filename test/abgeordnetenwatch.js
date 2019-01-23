@@ -15,9 +15,9 @@ describe('abgeordnetenwatch', () => {
         });
     });
 
-    describe('#getCandidates()', () => {
-        it('should return all candidates for Hamburg', async function() {
-            const result = await abgeordnetenwatch.getCandidates('eacf8eca-932f-4620-9668-7386013481a0');
+    describe('#getDeputies()', () => {
+        it('should return all deputies for Hamburg', async function() {
+            const result = await abgeordnetenwatch.getDeputies('eacf8eca-932f-4620-9668-7386013481a0');
             expect(result.profiles).to.have.length.above(99);
 
             result.profiles.forEach(profile => {
@@ -28,7 +28,7 @@ describe('abgeordnetenwatch', () => {
     });
 
     describe('#getProfile()', () => {
-        it('should return profile for Angela Merkel', async function () {
+        it('should return profile for Angela Merkel', async function() {
             const result = await abgeordnetenwatch.getProfile('60d0787f-e311-4283-a7fd-85b9f62a9b33', 'angela-merkel');
             expect(result.profile).to.exist;
             expect(result.profile.personal.first_name).to.equal('Angela');

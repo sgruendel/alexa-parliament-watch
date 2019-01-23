@@ -6,7 +6,7 @@ alexaTest.setExtraFeature('questionMarkCheck', false);
 
 // custom slot types
 const LIST_OF_PARLIAMENTS = 'LIST_OF_PARLIAMENTS';
-const LIST_OF_CANDIDATES = 'LIST_OF_CANDIDATES';
+const LIST_OF_DEPUTIES = 'LIST_OF_DEPUTIES';
 
 // initialize the testing framework
 alexaTest.initialize(
@@ -39,11 +39,13 @@ describe('Abgeordneten Watch Skill', () => {
         ]);
     });
 
-    describe('SessionEndedRequest', () => {
+    describe('FallbackIntent', () => {
         alexaTest.test([
             {
-                request: alexaTest.getSessionEndedRequest(),
-                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+                request: alexaTest.getIntentRequest('AMAZON.FallbackIntent'),
+                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                shouldEndSession: false,
             },
         ]);
     });
@@ -68,6 +70,15 @@ describe('Abgeordneten Watch Skill', () => {
         ]);
     });
 
+    describe('SessionEndedRequest', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getSessionEndedRequest(),
+                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+            },
+        ]);
+    });
+
     describe('LaunchRequest', () => {
         alexaTest.test([
             {
@@ -79,30 +90,30 @@ describe('Abgeordneten Watch Skill', () => {
         ]);
     });
 
-    describe('CandidateIntent', () => {
+    describe('DeputyIntent', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('CandidateIntent', { candidate: 'carsten warnke' }),
-                    'candidate', LIST_OF_CANDIDATES, 'Carsten Warnke', 'carsten-warnke'),
+                    alexaTest.getIntentRequest('DeputyIntent', { deputy: 'carsten warnke' }),
+                    'deputy', LIST_OF_DEPUTIES, 'Carsten Warnke', 'carsten-warnke'),
                 says: 'Carsten Warnke ist Mitglied der Die PARTEI im Bundestag. Er wurde 1977 geboren, besitzt eine Ausbildung als bei der Konkurrenz? Unnötig und ist tätig als Turbopolitiker.',
                 shouldEndSession: true,
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('CandidateIntent', { candidate: 'Merkel' }),
+                    alexaTest.getIntentRequest('DeputyIntent', { deputy: 'Merkel' }),
                     [
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Angela Merkel', id: 'angela-merkel' },
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Christoph Merkel', id: 'christoph-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Angela Merkel', id: 'angela-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Christoph Merkel', id: 'christoph-merkel' },
                     ]),
-                elicitsSlot: 'candidate',
+                elicitsSlot: 'deputy',
                 says: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 reprompts: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 shouldEndSession: false,
             },
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('CandidateIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
+                    alexaTest.getIntentRequest('DeputyIntent'), 'deputy', LIST_OF_DEPUTIES, 'Otto Waalkes'),
                 says: 'Ich kann diesen Abgeordneten leider nicht finden.',
                 shouldEndSession: true,
             },
@@ -113,26 +124,26 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('AnswersIntent', { candidate: 'carsten warnke' }),
-                    'candidate', LIST_OF_CANDIDATES, 'Carsten Warnke', 'carsten-warnke'),
+                    alexaTest.getIntentRequest('AnswersIntent', { deputy: 'carsten warnke' }),
+                    'deputy', LIST_OF_DEPUTIES, 'Carsten Warnke', 'carsten-warnke'),
                 says: 'Carsten Warnke hat eine Frage erhalten und keine davon beantwortet.',
                 shouldEndSession: true,
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('AnswersIntent', { candidate: 'Merkel' }),
+                    alexaTest.getIntentRequest('AnswersIntent', { deputy: 'Merkel' }),
                     [
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Angela Merkel', id: 'angela-merkel' },
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Christoph Merkel', id: 'christoph-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Angela Merkel', id: 'angela-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Christoph Merkel', id: 'christoph-merkel' },
                     ]),
-                elicitsSlot: 'candidate',
+                elicitsSlot: 'deputy',
                 says: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 reprompts: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 shouldEndSession: false,
             },
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('AnswersIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
+                    alexaTest.getIntentRequest('AnswersIntent'), 'deputy', LIST_OF_DEPUTIES, 'Otto Waalkes'),
                 says: 'Ich kann diesen Abgeordneten leider nicht finden.',
                 shouldEndSession: true,
             },
@@ -143,26 +154,26 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('VotesIntent', { candidate: 'carsten warnke' }),
-                    'candidate', LIST_OF_CANDIDATES, 'Carsten Warnke', 'carsten-warnke'),
+                    alexaTest.getIntentRequest('VotesIntent', { deputy: 'carsten warnke' }),
+                    'deputy', LIST_OF_DEPUTIES, 'Carsten Warnke', 'carsten-warnke'),
                 says: 'Carsten Warnke hat an keiner Abstimmung teilgenommen.',
                 shouldEndSession: true,
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('VotesIntent', { candidate: 'Merkel' }),
+                    alexaTest.getIntentRequest('VotesIntent', { deputy: 'Merkel' }),
                     [
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Angela Merkel', id: 'angela-merkel' },
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Christoph Merkel', id: 'christoph-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Angela Merkel', id: 'angela-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Christoph Merkel', id: 'christoph-merkel' },
                     ]),
-                elicitsSlot: 'candidate',
+                elicitsSlot: 'deputy',
                 says: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 reprompts: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 shouldEndSession: false,
             },
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('VotesIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
+                    alexaTest.getIntentRequest('VotesIntent'), 'deputy', LIST_OF_DEPUTIES, 'Otto Waalkes'),
                 says: 'Ich kann diesen Abgeordneten leider nicht finden.',
                 shouldEndSession: true,
             },
@@ -173,26 +184,26 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('CommitteesIntent', { candidate: 'carsten warnke' }),
-                    'candidate', LIST_OF_CANDIDATES, 'Carsten Warnke', 'carsten-warnke'),
+                    alexaTest.getIntentRequest('CommitteesIntent', { deputy: 'carsten warnke' }),
+                    'deputy', LIST_OF_DEPUTIES, 'Carsten Warnke', 'carsten-warnke'),
                 says: 'Carsten Warnke ist in keinem Ausschuss vertreten.',
                 shouldEndSession: true,
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('CommitteesIntent', { candidate: 'Merkel' }),
+                    alexaTest.getIntentRequest('CommitteesIntent', { deputy: 'Merkel' }),
                     [
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Angela Merkel', id: 'angela-merkel' },
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Christoph Merkel', id: 'christoph-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Angela Merkel', id: 'angela-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Christoph Merkel', id: 'christoph-merkel' },
                     ]),
-                elicitsSlot: 'candidate',
+                elicitsSlot: 'deputy',
                 says: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 reprompts: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 shouldEndSession: false,
             },
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('CommitteesIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
+                    alexaTest.getIntentRequest('CommitteesIntent'), 'deputy', LIST_OF_DEPUTIES, 'Otto Waalkes'),
                 says: 'Ich kann diesen Abgeordneten leider nicht finden.',
                 shouldEndSession: true,
             },
@@ -203,26 +214,26 @@ describe('Abgeordneten Watch Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('SidejobsIntent', { candidate: 'carsten warnke' }),
-                    'candidate', LIST_OF_CANDIDATES, 'Carsten Warnke', 'carsten-warnke'),
+                    alexaTest.getIntentRequest('SidejobsIntent', { deputy: 'carsten warnke' }),
+                    'deputy', LIST_OF_DEPUTIES, 'Carsten Warnke', 'carsten-warnke'),
                 says: 'Carsten Warnke geht keiner Nebentätigkeit nach.',
                 shouldEndSession: true,
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('SidejobsIntent', { candidate: 'Merkel' }),
+                    alexaTest.getIntentRequest('SidejobsIntent', { deputy: 'Merkel' }),
                     [
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Angela Merkel', id: 'angela-merkel' },
-                        { slotName: 'candidate', slotType: LIST_OF_CANDIDATES, value: 'Christoph Merkel', id: 'christoph-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Angela Merkel', id: 'angela-merkel' },
+                        { slotName: 'deputy', slotType: LIST_OF_DEPUTIES, value: 'Christoph Merkel', id: 'christoph-merkel' },
                     ]),
-                elicitsSlot: 'candidate',
+                elicitsSlot: 'deputy',
                 says: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 reprompts: 'Welcher Abgeordnete, Angela Merkel oder Christoph Merkel?',
                 shouldEndSession: false,
             },
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('SidejobsIntent'), 'candidate', LIST_OF_CANDIDATES, 'Otto Waalkes'),
+                    alexaTest.getIntentRequest('SidejobsIntent'), 'deputy', LIST_OF_DEPUTIES, 'Otto Waalkes'),
                 says: 'Ich kann diesen Abgeordneten leider nicht finden.',
                 shouldEndSession: true,
             },
