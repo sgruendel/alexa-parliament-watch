@@ -34,7 +34,7 @@
     "ask-sdk-core": "^2.3.0",
     "ask-sdk-model": "^1.11.0",
     "dashbot": "^10.2.1",
-    "i18next": "^13.0.0",
+    "i18next": "^19.0.3",
     "i18next-sprintf-postprocessor": "^0.2.2",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
