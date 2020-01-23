@@ -10,7 +10,7 @@ const LIST_OF_DEPUTIES = 'LIST_OF_DEPUTIES';
 
 // initialize the testing framework
 alexaTest.initialize(
-    require('../src/index'),
+    require('../../src/index'),
     'amzn1.ask.skill.f63fec31-1d6c-4c66-87cb-c73d7d44729d',
     'amzn1.ask.account.VOID');
 alexaTest.setLocale('de-DE');

@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const abgeordnetenwatch = require('../src/abgeordnetenwatch');
+const abgeordnetenwatch = require('../../src/abgeordnetenwatch');
 
 describe('abgeordnetenwatch', () => {
     describe('#getParliaments()', () => {
