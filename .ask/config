@@ -5,35 +5,27 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "6f9de318e2987806bfc422fa0245dbbc"
+          "eTag": "4f09f9fe17ec5c756a657d0abebeedfb"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "30095229356f0a262de0a2b30c96d5ff"
+            "eTag": "c216957e3ca44c4b98e4204163022eff"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:4",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:5",
             "awsRegion": "eu-west-1",
             "functionName": "parliamentWatch",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "84ad8630-68e6-4e58-9396-5bfdcc2e4dba"
+            "revisionId": "84ad8630-68e6-4e58-9396-5bfdcc2e4dba",
+            "codeUri": "src",
+            "handler": "index.handler",
+            "runtime": "nodejs12.x"
           }
         ]
-      },
-      "merge": {
-        "manifest": {
-          "apis": {
-            "custom": {
-              "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:4"
-              }
-            }
-          }
-        }
       }
     }
   }

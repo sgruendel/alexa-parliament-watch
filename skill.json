@@ -1,5 +1,22 @@
 {
   "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:5",
+          "sourceDir": "./src"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    },
     "publishingInformation": {
       "locales": {
         "de-DE": {
@@ -21,25 +38,9 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.\n\nChanges to previous version (Lambda version 2):\n* Add FallbackIntent handling\n* Add missing deputies that were voted to Bundestag by list",
+      "testingInstructions": "Data can be verified on https://www.abgeordnetenwatch.de/.\n\nChanges to previous version (Lambda version 4):\n* update deputies",
       "category": "EDUCATION_AND_REFERENCE",
       "distributionCountries": []
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "sourceDir": "./src"
-        },
-        "interfaces": []
-      }
-    },
-    "manifestVersion": "1.0",
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
-      "isChildDirected": false,
-      "usesPersonalInfo": false
     }
   }
 }
