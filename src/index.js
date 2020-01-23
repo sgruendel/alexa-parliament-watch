@@ -276,7 +276,7 @@ const ErrorHandler = {
 const LocalizationInterceptor = {
     process(handlerInput) {
         i18next.use(sprintf).init({
-            lng: handlerInput.requestEnvelope.request.locale,
+            lng: Alexa.getLocale(handlerInput.requestEnvelope),
             overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
             resources: languageStrings,
             returnObjects: true,
