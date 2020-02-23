@@ -5,7 +5,7 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "4f09f9fe17ec5c756a657d0abebeedfb"
+          "eTag": "0245db1b3d64eb9a32563a9e6b10ef35"
         },
         "interactionModel": {
           "de-DE": {
@@ -14,7 +14,7 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:5",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch:6",
             "awsRegion": "eu-west-1",
             "functionName": "parliamentWatch",
             "alexaUsage": [
