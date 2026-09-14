@@ -1,0 +1,4049 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "abgeordneten watch",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "DeputyIntent",
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "samples": [
+                "{deputy}"
+              ]
+            }
+          ],
+          "samples": [
+            "{deputy}",
+            "nach {deputy}",
+            "suche {deputy}",
+            "suche nach {deputy}"
+          ]
+        },
+        {
+          "name": "AnswersIntent",
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "samples": [
+                "{deputy}"
+              ]
+            }
+          ],
+          "samples": [
+            "Fragen an {deputy}",
+            "nach Fragen an {deputy}",
+            "nach den Fragen an {deputy}",
+            "nach Antworten von {deputy}",
+            "nach den Antworten von {deputy}"
+          ]
+        },
+        {
+          "name": "VotesIntent",
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "samples": [
+                "{deputy}"
+              ]
+            }
+          ],
+          "samples": [
+            "Abstimmungen von {deputy}",
+            "nach Abstimmungen von {deputy}",
+            "nach den Abstimmungen von {deputy}",
+            "nach dem Abstimmungsverhalten von {deputy}",
+            "an welchen Abstimmungen {deputy} teilgenommen hat",
+            "an welchen Abstimmungen {deputy} beteiligt war",
+            "bei welchen Abstimmungen {deputy} teilgenommen hat",
+            "bei welchen Abstimmungen {deputy} beteiligt war"
+          ]
+        },
+        {
+          "name": "CommitteesIntent",
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "samples": [
+                "{deputy}"
+              ]
+            }
+          ],
+          "samples": [
+            "Ausschüsse von {deputy}",
+            "nach Ausschüssen von {deputy}",
+            "nach den Ausschüssen von {deputy}",
+            "nach Ausschussmitgliedschaften von {deputy}",
+            "nach den Ausschussmitgliedschaften von {deputy}",
+            "in welchen Ausschüssen {deputy} ist",
+            "in welchen Ausschüssen {deputy} vertreten ist",
+            "in welchen Ausschüssen {deputy} sitzt",
+            "an welchen Ausschüssen {deputy} teilnimmt"
+          ]
+        },
+        {
+          "name": "SidejobsIntent",
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "samples": [
+                "{deputy}"
+              ]
+            }
+          ],
+          "samples": [
+            "Nebentätigkeiten von {deputy}",
+            "nach Nebentätigkeiten von {deputy}",
+            "nach den Nebentätigkeiten von {deputy}",
+            "welchen Nebentätigkeiten {deputy} nachgeht",
+            "welchen Nebentätigkeiten {deputy} ausübt",
+            "was die Nebentätigkeiten von {deputy} sind"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_DEPUTIES",
+          "values": [
+            {
+              "id": "68944",
+              "name": {
+                "value": "Aaron Valent"
+              }
+            },
+            {
+              "id": "68679",
+              "name": {
+                "value": "Achim Köhler"
+              }
+            },
+            {
+              "id": "68402",
+              "name": {
+                "value": "Adam Balten"
+              }
+            },
+            {
+              "id": "68380",
+              "name": {
+                "value": "Adis Ahmetović"
+              }
+            },
+            {
+              "id": "68553",
+              "name": {
+                "value": "Adrian Grasse"
+              }
+            },
+            {
+              "id": "68472",
+              "name": {
+                "value": "Agnes Maria Conrad"
+              }
+            },
+            {
+              "id": "68456",
+              "name": {
+                "value": "Agnieszka Brugger"
+              }
+            },
+            {
+              "id": "68386",
+              "name": {
+                "value": "Alaa Alhamwi"
+              }
+            },
+            {
+              "id": "68838",
+              "name": {
+                "value": "Albert Rupprecht"
+              }
+            },
+            {
+              "id": "68910",
+              "name": {
+                "value": "Albert Stegemann"
+              }
+            },
+            {
+              "id": "68391",
+              "name": {
+                "value": "Alexander Arpaschi"
+              }
+            },
+            {
+              "id": "68485",
+              "name": {
+                "value": "Alexander Dobrindt"
+              }
+            },
+            {
+              "id": "68507",
+              "name": {
+                "value": "Alexander Engelhard"
+              }
+            },
+            {
+              "id": "68537",
+              "name": {
+                "value": "Alexander Gauland"
+              }
+            },
+            {
+              "id": "68606",
+              "name": {
+                "value": "Alexander Hoffmann"
+              }
+            },
+            {
+              "id": "68623",
+              "name": {
+                "value": "Alexander Jordan"
+              }
+            },
+            {
+              "id": "68808",
+              "name": {
+                "value": "Alexander Radwan"
+              }
+            },
+            {
+              "id": "68934",
+              "name": {
+                "value": "Alexander Throm"
+              }
+            },
+            {
+              "id": "68987",
+              "name": {
+                "value": "Alexander Wolf"
+              }
+            },
+            {
+              "id": "69006",
+              "name": {
+                "value": "Alexis Giersch"
+              }
+            },
+            {
+              "id": "68967",
+              "name": {
+                "value": "Alice Weidel"
+              }
+            },
+            {
+              "id": "68809",
+              "name": {
+                "value": "Alois Rainer"
+              }
+            },
+            {
+              "id": "68707",
+              "name": {
+                "value": "Andrea Lindholz"
+              }
+            },
+            {
+              "id": "69043",
+              "name": {
+                "value": "Andrea Lübcke"
+              }
+            },
+            {
+              "id": "68394",
+              "name": {
+                "value": "Andreas Audretsch"
+              }
+            },
+            {
+              "id": "68429",
+              "name": {
+                "value": "Andreas Bleck"
+              }
+            },
+            {
+              "id": "68703",
+              "name": {
+                "value": "Andreas Lenz"
+              }
+            },
+            {
+              "id": "68726",
+              "name": {
+                "value": "Andreas Mattfeldt"
+              }
+            },
+            {
+              "id": "68728",
+              "name": {
+                "value": "Andreas Mayer"
+              }
+            },
+            {
+              "id": "68784",
+              "name": {
+                "value": "Andreas Paul"
+              }
+            },
+            {
+              "id": "68885",
+              "name": {
+                "value": "Andreas Schwarz"
+              }
+            },
+            {
+              "id": "68670",
+              "name": {
+                "value": "Anette Kramme"
+              }
+            },
+            {
+              "id": "68835",
+              "name": {
+                "value": "Angela Rudzka"
+              }
+            },
+            {
+              "id": "68547",
+              "name": {
+                "value": "Angelika Glöckner"
+              }
+            },
+            {
+              "id": "68635",
+              "name": {
+                "value": "Anja Karliczek"
+              }
+            },
+            {
+              "id": "68820",
+              "name": {
+                "value": "Anja Reinalter"
+              }
+            },
+            {
+              "id": "68938",
+              "name": {
+                "value": "Anja Troff-Schaffarzyk"
+              }
+            },
+            {
+              "id": "68969",
+              "name": {
+                "value": "Anja Weisgerber"
+              }
+            },
+            {
+              "id": "68379",
+              "name": {
+                "value": "Anna Aeikens"
+              }
+            },
+            {
+              "id": "68687",
+              "name": {
+                "value": "Anna Leonore Labitzke Rathert"
+              }
+            },
+            {
+              "id": "68717",
+              "name": {
+                "value": "Anna Lührmann"
+              }
+            },
+            {
+              "id": "68621",
+              "name": {
+                "value": "Anne Janssen"
+              }
+            },
+            {
+              "id": "68682",
+              "name": {
+                "value": "Anne König"
+              }
+            },
+            {
+              "id": "68992",
+              "name": {
+                "value": "Anne Zerr"
+              }
+            },
+            {
+              "id": "68450",
+              "name": {
+                "value": "Anne-Mieke Bremer"
+              }
+            },
+            {
+              "id": "68652",
+              "name": {
+                "value": "Annika Klose"
+              }
+            },
+            {
+              "id": "68608",
+              "name": {
+                "value": "Anton Hofreiter"
+              }
+            },
+            {
+              "id": "69002",
+              "name": {
+                "value": "Armand Zorn"
+              }
+            },
+            {
+              "id": "68554",
+              "name": {
+                "value": "Armin Grau"
+              }
+            },
+            {
+              "id": "68692",
+              "name": {
+                "value": "Armin Laschet"
+              }
+            },
+            {
+              "id": "68811",
+              "name": {
+                "value": "Arne Onni Raue"
+              }
+            },
+            {
+              "id": "68395",
+              "name": {
+                "value": "Artur Auernhammer"
+              }
+            },
+            {
+              "id": "68935",
+              "name": {
+                "value": "Astrid Timmermann-Fechter"
+              }
+            },
+            {
+              "id": "68568",
+              "name": {
+                "value": "Ates Gürpinar"
+              }
+            },
+            {
+              "id": "68928",
+              "name": {
+                "value": "Awet Tesfaiesus"
+              }
+            },
+            {
+              "id": "68657",
+              "name": {
+                "value": "Axel Knoerig"
+              }
+            },
+            {
+              "id": "68755",
+              "name": {
+                "value": "Axel Müller"
+              }
+            },
+            {
+              "id": "69005",
+              "name": {
+                "value": "Aydan Özoğuz"
+              }
+            },
+            {
+              "id": "68392",
+              "name": {
+                "value": "Ayse Asar"
+              }
+            },
+            {
+              "id": "68407",
+              "name": {
+                "value": "Bärbel Bas"
+              }
+            },
+            {
+              "id": "68659",
+              "name": {
+                "value": "Bärbel Kofler"
+              }
+            },
+            {
+              "id": "68510",
+              "name": {
+                "value": "Bastian Alfons Ernst"
+              }
+            },
+            {
+              "id": "68937",
+              "name": {
+                "value": "Bastian Treuheit"
+              }
+            },
+            {
+              "id": "68919",
+              "name": {
+                "value": "Beatrix von Storch"
+              }
+            },
+            {
+              "id": "68463",
+              "name": {
+                "value": "Benedikt Büdenbender"
+              }
+            },
+            {
+              "id": "68410",
+              "name": {
+                "value": "Bernd Baumann"
+              }
+            },
+            {
+              "id": "68842",
+              "name": {
+                "value": "Bernd Rützel"
+              }
+            },
+            {
+              "id": "68848",
+              "name": {
+                "value": "Bernd Schattner"
+              }
+            },
+            {
+              "id": "68879",
+              "name": {
+                "value": "Bernd Schuhmann"
+              }
+            },
+            {
+              "id": "68571",
+              "name": {
+                "value": "Bettina Hagedorn"
+              }
+            },
+            {
+              "id": "68716",
+              "name": {
+                "value": "Bettina Lugk"
+              }
+            },
+            {
+              "id": "68420",
+              "name": {
+                "value": "Birgit Bessin"
+              }
+            },
+            {
+              "id": "68900",
+              "name": {
+                "value": "Björn Simon"
+              }
+            },
+            {
+              "id": "68810",
+              "name": {
+                "value": "Bodo Ramelow"
+              }
+            },
+            {
+              "id": "68534",
+              "name": {
+                "value": "Boris Gamanov"
+              }
+            },
+            {
+              "id": "68746",
+              "name": {
+                "value": "Boris Mijatović"
+              }
+            },
+            {
+              "id": "68794",
+              "name": {
+                "value": "Boris Pistorius"
+              }
+            },
+            {
+              "id": "68582",
+              "name": {
+                "value": "Britta Haßelmann"
+              }
+            },
+            {
+              "id": "68680",
+              "name": {
+                "value": "Cansın Köktürk"
+              }
+            },
+            {
+              "id": "69003",
+              "name": {
+                "value": "Cansu Özdemir"
+              }
+            },
+            {
+              "id": "68696",
+              "name": {
+                "value": "Caren Lay"
+              }
+            },
+            {
+              "id": "68856",
+              "name": {
+                "value": "Carina Schießl"
+              }
+            },
+            {
+              "id": "68847",
+              "name": {
+                "value": "Carl-Philipp Sassenrath"
+              }
+            },
+            {
+              "id": "68966",
+              "name": {
+                "value": "Carmen Wegge"
+              }
+            },
+            {
+              "id": "68398",
+              "name": {
+                "value": "Carolin Bachmann"
+              }
+            },
+            {
+              "id": "68959",
+              "name": {
+                "value": "Carolin Wagner"
+              }
+            },
+            {
+              "id": "68440",
+              "name": {
+                "value": "Caroline Bosbach"
+              }
+            },
+            {
+              "id": "68413",
+              "name": {
+                "value": "Carsten Becker"
+              }
+            },
+            {
+              "id": "68453",
+              "name": {
+                "value": "Carsten Brodesser"
+              }
+            },
+            {
+              "id": "68684",
+              "name": {
+                "value": "Carsten Körber"
+              }
+            },
+            {
+              "id": "68708",
+              "name": {
+                "value": "Carsten Linnemann"
+              }
+            },
+            {
+              "id": "68756",
+              "name": {
+                "value": "Carsten Müller"
+              }
+            },
+            {
+              "id": "69014",
+              "name": {
+                "value": "Carsten Schneider"
+              }
+            },
+            {
+              "id": "68846",
+              "name": {
+                "value": "Catarina dos Santos-Wintz"
+              }
+            },
+            {
+              "id": "68618",
+              "name": {
+                "value": "Cem Ince"
+              }
+            },
+            {
+              "id": "68663",
+              "name": {
+                "value": "Chantal Kopf"
+              }
+            },
+            {
+              "id": "68767",
+              "name": {
+                "value": "Charlotte Neuhäuser"
+              }
+            },
+            {
+              "id": "68488",
+              "name": {
+                "value": "Christian Douglas"
+              }
+            },
+            {
+              "id": "68564",
+              "name": {
+                "value": "Christian Görke"
+              }
+            },
+            {
+              "id": "68569",
+              "name": {
+                "value": "Christian Haase"
+              }
+            },
+            {
+              "id": "68605",
+              "name": {
+                "value": "Christian Hirte"
+              }
+            },
+            {
+              "id": "68752",
+              "name": {
+                "value": "Christian Moser"
+              }
+            },
+            {
+              "id": "68812",
+              "name": {
+                "value": "Christian Reck"
+              }
+            },
+            {
+              "id": "68917",
+              "name": {
+                "value": "Christian von Stetten"
+              }
+            },
+            {
+              "id": "68984",
+              "name": {
+                "value": "Christian Wirth"
+              }
+            },
+            {
+              "id": "68990",
+              "name": {
+                "value": "Christian Zaum"
+              }
+            },
+            {
+              "id": "68852",
+              "name": {
+                "value": "Christiane Schenderlein"
+              }
+            },
+            {
+              "id": "68978",
+              "name": {
+                "value": "Christin Willnat"
+              }
+            },
+            {
+              "id": "68409",
+              "name": {
+                "value": "Christina Baum"
+              }
+            },
+            {
+              "id": "68924",
+              "name": {
+                "value": "Christina Stumpp"
+              }
+            },
+            {
+              "id": "68427",
+              "name": {
+                "value": "Christoph Birghan"
+              }
+            },
+            {
+              "id": "68953",
+              "name": {
+                "value": "Christoph de Vries"
+              }
+            },
+            {
+              "id": "68527",
+              "name": {
+                "value": "Christoph Frauenpreiß"
+              }
+            },
+            {
+              "id": "68557",
+              "name": {
+                "value": "Christoph Grimm"
+              }
+            },
+            {
+              "id": "70562",
+              "name": {
+                "value": "Christoph Naser"
+              }
+            },
+            {
+              "id": "68795",
+              "name": {
+                "value": "Christoph Ploß"
+              }
+            },
+            {
+              "id": "68859",
+              "name": {
+                "value": "Christoph Schmid"
+              }
+            },
+            {
+              "id": "68491",
+              "name": {
+                "value": "Christopher Drößler"
+              }
+            },
+            {
+              "id": "68782",
+              "name": {
+                "value": "Christos Pantazis"
+              }
+            },
+            {
+              "id": "68465",
+              "name": {
+                "value": "Clara Bünger"
+              }
+            },
+            {
+              "id": "68750",
+              "name": {
+                "value": "Claudia Moll"
+              }
+            },
+            {
+              "id": "68757",
+              "name": {
+                "value": "Claudia Müller"
+              }
+            },
+            {
+              "id": "68829",
+              "name": {
+                "value": "Claudia Roth"
+              }
+            },
+            {
+              "id": "68970",
+              "name": {
+                "value": "Claudia Weiss"
+              }
+            },
+            {
+              "id": "68841",
+              "name": {
+                "value": "Corinna Rüffer"
+              }
+            },
+            {
+              "id": "68397",
+              "name": {
+                "value": "Cornell-Anette Babendererde"
+              }
+            },
+            {
+              "id": "68861",
+              "name": {
+                "value": "Dagmar Schmidt"
+              }
+            },
+            {
+              "id": "68401",
+              "name": {
+                "value": "Daniel Baldy"
+              }
+            },
+            {
+              "id": "68421",
+              "name": {
+                "value": "Daniel Bettermann"
+              }
+            },
+            {
+              "id": "68681",
+              "name": {
+                "value": "Daniel Kölbl"
+              }
+            },
+            {
+              "id": "68825",
+              "name": {
+                "value": "Daniel Rinkert"
+              }
+            },
+            {
+              "id": "68964",
+              "name": {
+                "value": "Daniel Walter"
+              }
+            },
+            {
+              "id": "68991",
+              "name": {
+                "value": "Daniel Zerbin"
+              }
+            },
+            {
+              "id": "68714",
+              "name": {
+                "value": "Daniela Ludwig"
+              }
+            },
+            {
+              "id": "68836",
+              "name": {
+                "value": "Daniela Rump"
+              }
+            },
+            {
+              "id": "68733",
+              "name": {
+                "value": "Danny Meiners"
+              }
+            },
+            {
+              "id": "68895",
+              "name": {
+                "value": "Dario Seifert"
+              }
+            },
+            {
+              "id": "68555",
+              "name": {
+                "value": "David Gregosz"
+              }
+            },
+            {
+              "id": "70129",
+              "name": {
+                "value": "David Mandrella"
+              }
+            },
+            {
+              "id": "68800",
+              "name": {
+                "value": "David Preisendanz"
+              }
+            },
+            {
+              "id": "68858",
+              "name": {
+                "value": "David Schliesing"
+              }
+            },
+            {
+              "id": "68496",
+              "name": {
+                "value": "Deborah Düring"
+              }
+            },
+            {
+              "id": "68785",
+              "name": {
+                "value": "Denis Pauli"
+              }
+            },
+            {
+              "id": "68710",
+              "name": {
+                "value": "Denise Loop"
+              }
+            },
+            {
+              "id": "68826",
+              "name": {
+                "value": "Dennis Rohde"
+              }
+            },
+            {
+              "id": "68941",
+              "name": {
+                "value": "Derya Türk-Nachbaur"
+              }
+            },
+            {
+              "id": "68414",
+              "name": {
+                "value": "Desiree Becker"
+              }
+            },
+            {
+              "id": "68894",
+              "name": {
+                "value": "Detlef Seif"
+              }
+            },
+            {
+              "id": "68593",
+              "name": {
+                "value": "Diana Herbstreuth"
+              }
+            },
+            {
+              "id": "68997",
+              "name": {
+                "value": "Diana Zimmer"
+              }
+            },
+            {
+              "id": "68918",
+              "name": {
+                "value": "Dieter Stier"
+              }
+            },
+            {
+              "id": "68406",
+              "name": {
+                "value": "Dietmar Bartsch"
+              }
+            },
+            {
+              "id": "68445",
+              "name": {
+                "value": "Dirk Brandes"
+              }
+            },
+            {
+              "id": "68955",
+              "name": {
+                "value": "Dirk Vöpel"
+              }
+            },
+            {
+              "id": "68977",
+              "name": {
+                "value": "Dirk Wiese"
+              }
+            },
+            {
+              "id": "68950",
+              "name": {
+                "value": "Donata Vogtschmidt"
+              }
+            },
+            {
+              "id": "68378",
+              "name": {
+                "value": "Doris Achelwilm"
+              }
+            },
+            {
+              "id": "68460",
+              "name": {
+                "value": "Dorothee Bär"
+              }
+            },
+            {
+              "id": "68672",
+              "name": {
+                "value": "Dunja Kreiser"
+              }
+            },
+            {
+              "id": "68766",
+              "name": {
+                "value": "Edgar Naujok"
+              }
+            },
+            {
+              "id": "68630",
+              "name": {
+                "value": "Elisabeth Kaiser"
+              }
+            },
+            {
+              "id": "68981",
+              "name": {
+                "value": "Elisabeth Winkelmeier-Becker"
+              }
+            },
+            {
+              "id": "68478",
+              "name": {
+                "value": "Ellen Demuth"
+              }
+            },
+            {
+              "id": "68993",
+              "name": {
+                "value": "Emmi Zeulner"
+              }
+            },
+            {
+              "id": "68661",
+              "name": {
+                "value": "Enrico Komning"
+              }
+            },
+            {
+              "id": "68455",
+              "name": {
+                "value": "Erhard Brucker"
+              }
+            },
+            {
+              "id": "68704",
+              "name": {
+                "value": "Esra Limbacher"
+              }
+            },
+            {
+              "id": "68482",
+              "name": {
+                "value": "Esther Dilcher"
+              }
+            },
+            {
+              "id": "68892",
+              "name": {
+                "value": "Evelyn Schötz"
+              }
+            },
+            {
+              "id": "68515",
+              "name": {
+                "value": "Fabian Fahl"
+              }
+            },
+            {
+              "id": "68552",
+              "name": {
+                "value": "Fabian Gramling"
+              }
+            },
+            {
+              "id": "68619",
+              "name": {
+                "value": "Fabian Jacobi"
+              }
+            },
+            {
+              "id": "68489",
+              "name": {
+                "value": "Falko Droßmann"
+              }
+            },
+            {
+              "id": "68403",
+              "name": {
+                "value": "Felix Banaszak"
+              }
+            },
+            {
+              "id": "68494",
+              "name": {
+                "value": "Felix Döring"
+              }
+            },
+            {
+              "id": "68875",
+              "name": {
+                "value": "Felix Schreiner"
+              }
+            },
+            {
+              "id": "68667",
+              "name": {
+                "value": "Ferat Koçak"
+              }
+            },
+            {
+              "id": "68798",
+              "name": {
+                "value": "Filiz Polat"
+              }
+            },
+            {
+              "id": "68426",
+              "name": {
+                "value": "Florian Bilic"
+              }
+            },
+            {
+              "id": "68487",
+              "name": {
+                "value": "Florian Dorn"
+              }
+            },
+            {
+              "id": "68572",
+              "name": {
+                "value": "Florian Hahn"
+              }
+            },
+            {
+              "id": "68758",
+              "name": {
+                "value": "Florian Müller"
+              }
+            },
+            {
+              "id": "68774",
+              "name": {
+                "value": "Florian Oest"
+              }
+            },
+            {
+              "id": "68781",
+              "name": {
+                "value": "Florian Oßner"
+              }
+            },
+            {
+              "id": "68883",
+              "name": {
+                "value": "Frank Schwabe"
+              }
+            },
+            {
+              "id": "68448",
+              "name": {
+                "value": "Franziska Brantner"
+              }
+            },
+            {
+              "id": "68611",
+              "name": {
+                "value": "Franziska Hoppermann"
+              }
+            },
+            {
+              "id": "68641",
+              "name": {
+                "value": "Franziska Kersten"
+              }
+            },
+            {
+              "id": "68585",
+              "name": {
+                "value": "Frauke Heiligenstadt"
+              }
+            },
+            {
+              "id": "68442",
+              "name": {
+                "value": "Frederik Bouffier"
+              }
+            },
+            {
+              "id": "68737",
+              "name": {
+                "value": "Friedrich Merz"
+              }
+            },
+            {
+              "id": "68567",
+              "name": {
+                "value": "Fritz Güntzler"
+              }
+            },
+            {
+              "id": "68586",
+              "name": {
+                "value": "Gabriela Heinrich"
+              }
+            },
+            {
+              "id": "68566",
+              "name": {
+                "value": "Georg Günther"
+              }
+            },
+            {
+              "id": "68647",
+              "name": {
+                "value": "Georg Kippels"
+              }
+            },
+            {
+              "id": "68877",
+              "name": {
+                "value": "Georg Schroeter"
+              }
+            },
+            {
+              "id": "68437",
+              "name": {
+                "value": "Gereon Bollmann"
+              }
+            },
+            {
+              "id": "68936",
+              "name": {
+                "value": "Gerhard Trabert"
+              }
+            },
+            {
+              "id": "68780",
+              "name": {
+                "value": "Gerold Otten"
+              }
+            },
+            {
+              "id": "68616",
+              "name": {
+                "value": "Gerrit Huy"
+              }
+            },
+            {
+              "id": "68471",
+              "name": {
+                "value": "Gitta Connemann"
+              }
+            },
+            {
+              "id": "68381",
+              "name": {
+                "value": "Gökay Akbulut"
+              }
+            },
+            {
+              "id": "68474",
+              "name": {
+                "value": "Gottfried Curio"
+              }
+            },
+            {
+              "id": "68531",
+              "name": {
+                "value": "Götz Frömming"
+              }
+            },
+            {
+              "id": "68562",
+              "name": {
+                "value": "Gregor Gysi"
+              }
+            },
+            {
+              "id": "68411",
+              "name": {
+                "value": "Günter Baumgartner"
+              }
+            },
+            {
+              "id": "68675",
+              "name": {
+                "value": "Günter Krings"
+              }
+            },
+            {
+              "id": "68673",
+              "name": {
+                "value": "Gunther Krichbaum"
+              }
+            },
+            {
+              "id": "68477",
+              "name": {
+                "value": "Hakan Demir"
+              }
+            },
+            {
+              "id": "68915",
+              "name": {
+                "value": "Hanna Steinmüller"
+              }
+            },
+            {
+              "id": "68548",
+              "name": {
+                "value": "Hannes Gnauck"
+              }
+            },
+            {
+              "id": "68660",
+              "name": {
+                "value": "Hans Koller"
+              }
+            },
+            {
+              "id": "68931",
+              "name": {
+                "value": "Hans Theiss"
+              }
+            },
+            {
+              "id": "68551",
+              "name": {
+                "value": "Hans-Jürgen Goßner"
+              }
+            },
+            {
+              "id": "68492",
+              "name": {
+                "value": "Hansjörg Durz"
+              }
+            },
+            {
+              "id": "68499",
+              "name": {
+                "value": "Harald Ebner"
+              }
+            },
+            {
+              "id": "68775",
+              "name": {
+                "value": "Harald Orthey"
+              }
+            },
+            {
+              "id": "68524",
+              "name": {
+                "value": "Hauke Finger"
+              }
+            },
+            {
+              "id": "68819",
+              "name": {
+                "value": "Heidi Reichinnek"
+              }
+            },
+            {
+              "id": "68598",
+              "name": {
+                "value": "Heike Heubach"
+              }
+            },
+            {
+              "id": "68574",
+              "name": {
+                "value": "Heiko Hain"
+              }
+            },
+            {
+              "id": "68658",
+              "name": {
+                "value": "Heinrich Koch"
+              }
+            },
+            {
+              "id": "68705",
+              "name": {
+                "value": "Helge Limburg"
+              }
+            },
+            {
+              "id": "68706",
+              "name": {
+                "value": "Helge Lindh"
+              }
+            },
+            {
+              "id": "68648",
+              "name": {
+                "value": "Helmut Kleebank"
+              }
+            },
+            {
+              "id": "68438",
+              "name": {
+                "value": "Hendrik Bollmann"
+              }
+            },
+            {
+              "id": "68610",
+              "name": {
+                "value": "Hendrik Hoppenstedt"
+              }
+            },
+            {
+              "id": "68923",
+              "name": {
+                "value": "Hendrik Streeck"
+              }
+            },
+            {
+              "id": "68814",
+              "name": {
+                "value": "Henning Rehbaum"
+              }
+            },
+            {
+              "id": "68862",
+              "name": {
+                "value": "Henri Schmidt"
+              }
+            },
+            {
+              "id": "68532",
+              "name": {
+                "value": "Hermann Färber"
+              }
+            },
+            {
+              "id": "68722",
+              "name": {
+                "value": "Holger Mann"
+              }
+            },
+            {
+              "id": "68584",
+              "name": {
+                "value": "Hubertus Heil"
+              }
+            },
+            {
+              "id": "68495",
+              "name": {
+                "value": "Hülya Düber"
+              }
+            },
+            {
+              "id": "68693",
+              "name": {
+                "value": "Ina Latendorf"
+              }
+            },
+            {
+              "id": "68887",
+              "name": {
+                "value": "Ines Schwerdtner"
+              }
+            },
+            {
+              "id": "68559",
+              "name": {
+                "value": "Inge Gräßle"
+              }
+            },
+            {
+              "id": "68573",
+              "name": {
+                "value": "Ingo Hahn"
+              }
+            },
+            {
+              "id": "68948",
+              "name": {
+                "value": "Ingo Vogel"
+              }
+            },
+            {
+              "id": "68745",
+              "name": {
+                "value": "Irene Mihalic"
+              }
+            },
+            {
+              "id": "68769",
+              "name": {
+                "value": "Iris Nieland"
+              }
+            },
+            {
+              "id": "68466",
+              "name": {
+                "value": "Isabel Cademartori"
+              }
+            },
+            {
+              "id": "68721",
+              "name": {
+                "value": "Isabel Mackensen-Geis"
+              }
+            },
+            {
+              "id": "68945",
+              "name": {
+                "value": "Isabelle Vandre"
+              }
+            },
+            {
+              "id": "68428",
+              "name": {
+                "value": "Jakob Blankenburg"
+              }
+            },
+            {
+              "id": "68888",
+              "name": {
+                "value": "Jamila Anna Schäfer"
+              }
+            },
+            {
+              "id": "68480",
+              "name": {
+                "value": "Jan Dieren"
+              }
+            },
+            {
+              "id": "68520",
+              "name": {
+                "value": "Jan Feser"
+              }
+            },
+            {
+              "id": "68686",
+              "name": {
+                "value": "Jan Köstering"
+              }
+            },
+            {
+              "id": "68738",
+              "name": {
+                "value": "Jan Metzler"
+              }
+            },
+            {
+              "id": "68770",
+              "name": {
+                "value": "Jan Ralf Nolte"
+              }
+            },
+            {
+              "id": "68382",
+              "name": {
+                "value": "Jan van Aken"
+              }
+            },
+            {
+              "id": "68863",
+              "name": {
+                "value": "Jan Wenzel Schmidt"
+              }
+            },
+            {
+              "id": "68713",
+              "name": {
+                "value": "Jan-Marco Luczak"
+              }
+            },
+            {
+              "id": "68544",
+              "name": {
+                "value": "Jan-Niclas Gesenhues"
+              }
+            },
+            {
+              "id": "68797",
+              "name": {
+                "value": "Jan-Wilhelm Pohlmann"
+              }
+            },
+            {
+              "id": "68462",
+              "name": {
+                "value": "Janina Böttger"
+              }
+            },
+            {
+              "id": "68986",
+              "name": {
+                "value": "Janine Wissler"
+              }
+            },
+            {
+              "id": "68476",
+              "name": {
+                "value": "Janosch Dahmen"
+              }
+            },
+            {
+              "id": "68613",
+              "name": {
+                "value": "Jasmina Hostert"
+              }
+            },
+            {
+              "id": "68483",
+              "name": {
+                "value": "Jeanne Dillschneider"
+              }
+            },
+            {
+              "id": "68416",
+              "name": {
+                "value": "Jens Behrens"
+              }
+            },
+            {
+              "id": "68697",
+              "name": {
+                "value": "Jens Lehmann"
+              }
+            },
+            {
+              "id": "68789",
+              "name": {
+                "value": "Jens Peick"
+              }
+            },
+            {
+              "id": "68903",
+              "name": {
+                "value": "Jens Spahn"
+              }
+            },
+            {
+              "id": "68430",
+              "name": {
+                "value": "Joachim Bloch"
+              }
+            },
+            {
+              "id": "68498",
+              "name": {
+                "value": "Joachim Ebmeyer"
+              }
+            },
+            {
+              "id": "68581",
+              "name": {
+                "value": "Jochen Haug"
+              }
+            },
+            {
+              "id": "68723",
+              "name": {
+                "value": "Johann Martel"
+              }
+            },
+            {
+              "id": "68843",
+              "name": {
+                "value": "Johann Saathoff"
+              }
+            },
+            {
+              "id": "68956",
+              "name": {
+                "value": "Johann Wadephul"
+              }
+            },
+            {
+              "id": "68516",
+              "name": {
+                "value": "Johannes Fechner"
+              }
+            },
+            {
+              "id": "68830",
+              "name": {
+                "value": "Johannes Rothenberger"
+              }
+            },
+            {
+              "id": "68890",
+              "name": {
+                "value": "Johannes Schätzl"
+              }
+            },
+            {
+              "id": "68874",
+              "name": {
+                "value": "Johannes Schraps"
+              }
+            },
+            {
+              "id": "68914",
+              "name": {
+                "value": "Johannes Steiniger"
+              }
+            },
+            {
+              "id": "68951",
+              "name": {
+                "value": "Johannes Volkmann"
+              }
+            },
+            {
+              "id": "68960",
+              "name": {
+                "value": "Johannes Wagner"
+              }
+            },
+            {
+              "id": "68974",
+              "name": {
+                "value": "Johannes Wiegelmann"
+              }
+            },
+            {
+              "id": "68980",
+              "name": {
+                "value": "Johannes Winkel"
+              }
+            },
+            {
+              "id": "68541",
+              "name": {
+                "value": "Jonas Geissler"
+              }
+            },
+            {
+              "id": "68469",
+              "name": {
+                "value": "Jörg Cezanne"
+              }
+            },
+            {
+              "id": "68999",
+              "name": {
+                "value": "Jörg Zirwes"
+              }
+            },
+            {
+              "id": "68683",
+              "name": {
+                "value": "Jörn König"
+              }
+            },
+            {
+              "id": "68441",
+              "name": {
+                "value": "Jorrit Bosch"
+              }
+            },
+            {
+              "id": "68777",
+              "name": {
+                "value": "Josef Oster"
+              }
+            },
+            {
+              "id": "68776",
+              "name": {
+                "value": "Josephine Ortleb"
+              }
+            },
+            {
+              "id": "68653",
+              "name": {
+                "value": "Julia Klöckner"
+              }
+            },
+            {
+              "id": "68870",
+              "name": {
+                "value": "Julia Schneider"
+              }
+            },
+            {
+              "id": "68946",
+              "name": {
+                "value": "Julia Verlinden"
+              }
+            },
+            {
+              "id": "68907",
+              "name": {
+                "value": "Julia-Christina Stange"
+              }
+            },
+            {
+              "id": "68624",
+              "name": {
+                "value": "Julian Joswig"
+              }
+            },
+            {
+              "id": "68864",
+              "name": {
+                "value": "Julian Schmidt"
+              }
+            },
+            {
+              "id": "68473",
+              "name": {
+                "value": "Jürgen Coße"
+              }
+            },
+            {
+              "id": "68578",
+              "name": {
+                "value": "Jürgen Hardt"
+              }
+            },
+            {
+              "id": "68678",
+              "name": {
+                "value": "Jürgen Kögel"
+              }
+            },
+            {
+              "id": "68973",
+              "name": {
+                "value": "Kai Whittaker"
+              }
+            },
+            {
+              "id": "68461",
+              "name": {
+                "value": "Karl Bär"
+              }
+            },
+            {
+              "id": "68695",
+              "name": {
+                "value": "Karl Lauterbach"
+              }
+            },
+            {
+              "id": "68779",
+              "name": {
+                "value": "Karoline Otte"
+              }
+            },
+            {
+              "id": "68604",
+              "name": {
+                "value": "Karsten Hilse"
+              }
+            },
+            {
+              "id": "68844",
+              "name": {
+                "value": "Kassem Taher Saleh"
+              }
+            },
+            {
+              "id": "68542",
+              "name": {
+                "value": "Katalin Gennburg"
+              }
+            },
+            {
+              "id": "68412",
+              "name": {
+                "value": "Katharina Beck"
+              }
+            },
+            {
+              "id": "68490",
+              "name": {
+                "value": "Katharina Dröge"
+              }
+            },
+            {
+              "id": "68538",
+              "name": {
+                "value": "Kathrin Gebel"
+              }
+            },
+            {
+              "id": "68741",
+              "name": {
+                "value": "Kathrin Michel"
+              }
+            },
+            {
+              "id": "68725",
+              "name": {
+                "value": "Katja Mast"
+              }
+            },
+            {
+              "id": "68921",
+              "name": {
+                "value": "Katja Strauss-Köster"
+              }
+            },
+            {
+              "id": "68522",
+              "name": {
+                "value": "Katrin Fey"
+              }
+            },
+            {
+              "id": "68563",
+              "name": {
+                "value": "Katrin Göring-Eckardt"
+              }
+            },
+            {
+              "id": "68906",
+              "name": {
+                "value": "Katrin Staffler"
+              }
+            },
+            {
+              "id": "68942",
+              "name": {
+                "value": "Katrin Uhlig"
+              }
+            },
+            {
+              "id": "70826",
+              "name": {
+                "value": "Katrin Zschau"
+              }
+            },
+            {
+              "id": "68550",
+              "name": {
+                "value": "Kay Gottschalk"
+              }
+            },
+            {
+              "id": "68994",
+              "name": {
+                "value": "Kay-Uwe Ziegler"
+              }
+            },
+            {
+              "id": "68556",
+              "name": {
+                "value": "Kerstin Griese"
+              }
+            },
+            {
+              "id": "68802",
+              "name": {
+                "value": "Kerstin Przygodda"
+              }
+            },
+            {
+              "id": "68807",
+              "name": {
+                "value": "Kerstin Radomski"
+              }
+            },
+            {
+              "id": "68947",
+              "name": {
+                "value": "Kerstin Vieregge"
+              }
+            },
+            {
+              "id": "68633",
+              "name": {
+                "value": "Kirsten Kappert-Gonther"
+              }
+            },
+            {
+              "id": "68720",
+              "name": {
+                "value": "Klaus Mack"
+              }
+            },
+            {
+              "id": "68976",
+              "name": {
+                "value": "Klaus Wiener"
+              }
+            },
+            {
+              "id": "68979",
+              "name": {
+                "value": "Klaus-Peter Willsch"
+              }
+            },
+            {
+              "id": "68377",
+              "name": {
+                "value": "Knut Abraham"
+              }
+            },
+            {
+              "id": "68739",
+              "name": {
+                "value": "Knuth Meyer-Soltau"
+              }
+            },
+            {
+              "id": "68685",
+              "name": {
+                "value": "Konrad Körner"
+              }
+            },
+            {
+              "id": "68771",
+              "name": {
+                "value": "Konstantin von Notz"
+              }
+            },
+            {
+              "id": "68650",
+              "name": {
+                "value": "Kurt Klaus Kleinschmidt"
+              }
+            },
+            {
+              "id": "68629",
+              "name": {
+                "value": "Lamya Kaddor"
+              }
+            },
+            {
+              "id": "68468",
+              "name": {
+                "value": "Lars Castellucci"
+              }
+            },
+            {
+              "id": "68503",
+              "name": {
+                "value": "Lars Ehm"
+              }
+            },
+            {
+              "id": "68575",
+              "name": {
+                "value": "Lars Haise"
+              }
+            },
+            {
+              "id": "68651",
+              "name": {
+                "value": "Lars Klingbeil"
+              }
+            },
+            {
+              "id": "68827",
+              "name": {
+                "value": "Lars Rohwer"
+              }
+            },
+            {
+              "id": "68855",
+              "name": {
+                "value": "Lars Schieske"
+              }
+            },
+            {
+              "id": "68821",
+              "name": {
+                "value": "Lea Reisner"
+              }
+            },
+            {
+              "id": "68434",
+              "name": {
+                "value": "Leif Bodin"
+              }
+            },
+            {
+              "id": "68609",
+              "name": {
+                "value": "Leif-Erik Holm"
+              }
+            },
+            {
+              "id": "68560",
+              "name": {
+                "value": "Lena Gumnior"
+              }
+            },
+            {
+              "id": "68500",
+              "name": {
+                "value": "Leon Eckert"
+              }
+            },
+            {
+              "id": "68897",
+              "name": {
+                "value": "Lina Seitzl"
+              }
+            },
+            {
+              "id": "68587",
+              "name": {
+                "value": "Linda Heitmann"
+              }
+            },
+            {
+              "id": "68399",
+              "name": {
+                "value": "Lisa Badum"
+              }
+            },
+            {
+              "id": "68787",
+              "name": {
+                "value": "Lisa Paus"
+              }
+            },
+            {
+              "id": "69045",
+              "name": {
+                "value": "Lisa Schubert"
+              }
+            },
+            {
+              "id": "68422",
+              "name": {
+                "value": "Lorenz Gösta Beutin"
+              }
+            },
+            {
+              "id": "68783",
+              "name": {
+                "value": "Luigi Pantisano"
+              }
+            },
+            {
+              "id": "68389",
+              "name": {
+                "value": "Luise Amtsberg"
+              }
+            },
+            {
+              "id": "68417",
+              "name": {
+                "value": "Lukas Benner"
+              }
+            },
+            {
+              "id": "68674",
+              "name": {
+                "value": "Lukas Krieger"
+              }
+            },
+            {
+              "id": "68815",
+              "name": {
+                "value": "Lukas Rehm"
+              }
+            },
+            {
+              "id": "68614",
+              "name": {
+                "value": "Luke Hoß"
+              }
+            },
+            {
+              "id": "68452",
+              "name": {
+                "value": "Lutz Brinkmann"
+              }
+            },
+            {
+              "id": "68634",
+              "name": {
+                "value": "Macit Karaahmetoğlu"
+              }
+            },
+            {
+              "id": "69004",
+              "name": {
+                "value": "Mahmut Özdemir"
+              }
+            },
+            {
+              "id": "68458",
+              "name": {
+                "value": "Maik Brückner"
+              }
+            },
+            {
+              "id": "68963",
+              "name": {
+                "value": "Maja Wallstein"
+              }
+            },
+            {
+              "id": "68636",
+              "name": {
+                "value": "Malte Kaufmann"
+              }
+            },
+            {
+              "id": "68505",
+              "name": {
+                "value": "Mandy Eißing"
+              }
+            },
+            {
+              "id": "68857",
+              "name": {
+                "value": "Manfred Schiller"
+              }
+            },
+            {
+              "id": "68671",
+              "name": {
+                "value": "Manuel Johannes Krauthausen"
+              }
+            },
+            {
+              "id": "68418",
+              "name": {
+                "value": "Marc Bernhard"
+              }
+            },
+            {
+              "id": "68424",
+              "name": {
+                "value": "Marc Biadacz"
+              }
+            },
+            {
+              "id": "68591",
+              "name": {
+                "value": "Marc Henrichmann"
+              }
+            },
+            {
+              "id": "68408",
+              "name": {
+                "value": "Marcel Bauer"
+              }
+            },
+            {
+              "id": "68506",
+              "name": {
+                "value": "Marcel Emmerich"
+              }
+            },
+            {
+              "id": "68804",
+              "name": {
+                "value": "Marcel Queckemeyer"
+              }
+            },
+            {
+              "id": "68464",
+              "name": {
+                "value": "Marcus Bühl"
+              }
+            },
+            {
+              "id": "68594",
+              "name": {
+                "value": "Mareike Hermeier"
+              }
+            },
+            {
+              "id": "68988",
+              "name": {
+                "value": "Mareike Lotte Wulf"
+              }
+            },
+            {
+              "id": "68631",
+              "name": {
+                "value": "Maren Kaminski"
+              }
+            },
+            {
+              "id": "68971",
+              "name": {
+                "value": "Maria-Lena Weiss"
+              }
+            },
+            {
+              "id": "68954",
+              "name": {
+                "value": "Marja-Liisa Völlers"
+              }
+            },
+            {
+              "id": "68589",
+              "name": {
+                "value": "Mark Helfrich"
+              }
+            },
+            {
+              "id": "68530",
+              "name": {
+                "value": "Markus Frohnmaier"
+              }
+            },
+            {
+              "id": "68662",
+              "name": {
+                "value": "Markus Koob"
+              }
+            },
+            {
+              "id": "68727",
+              "name": {
+                "value": "Markus Matzerath"
+              }
+            },
+            {
+              "id": "68818",
+              "name": {
+                "value": "Markus Reichel"
+              }
+            },
+            {
+              "id": "68940",
+              "name": {
+                "value": "Markus Töns"
+              }
+            },
+            {
+              "id": "68891",
+              "name": {
+                "value": "Marlene Schönberger"
+              }
+            },
+            {
+              "id": "68457",
+              "name": {
+                "value": "Marlon Bröhr"
+              }
+            },
+            {
+              "id": "68822",
+              "name": {
+                "value": "Martin Erwin Renner"
+              }
+            },
+            {
+              "id": "68543",
+              "name": {
+                "value": "Martin Gerster"
+              }
+            },
+            {
+              "id": "68596",
+              "name": {
+                "value": "Martin Hess"
+              }
+            },
+            {
+              "id": "68676",
+              "name": {
+                "value": "Martin Kröber"
+              }
+            },
+            {
+              "id": "68796",
+              "name": {
+                "value": "Martin Plum"
+              }
+            },
+            {
+              "id": "68805",
+              "name": {
+                "value": "Martin Rabanus"
+              }
+            },
+            {
+              "id": "68816",
+              "name": {
+                "value": "Martin Reichardt"
+              }
+            },
+            {
+              "id": "68898",
+              "name": {
+                "value": "Martin Sichert"
+              }
+            },
+            {
+              "id": "68508",
+              "name": {
+                "value": "Martina Englhardt-Kopf"
+              }
+            },
+            {
+              "id": "68640",
+              "name": {
+                "value": "Martina Kempf"
+              }
+            },
+            {
+              "id": "68943",
+              "name": {
+                "value": "Martina Uhr"
+              }
+            },
+            {
+              "id": "68880",
+              "name": {
+                "value": "Marvin Schulz"
+              }
+            },
+            {
+              "id": "68742",
+              "name": {
+                "value": "Mathias Middelberg"
+              }
+            },
+            {
+              "id": "68968",
+              "name": {
+                "value": "Mathias Weiser"
+              }
+            },
+            {
+              "id": "68536",
+              "name": {
+                "value": "Matthias Gastel"
+              }
+            },
+            {
+              "id": "68580",
+              "name": {
+                "value": "Matthias Hauer"
+              }
+            },
+            {
+              "id": "68588",
+              "name": {
+                "value": "Matthias Helferich"
+              }
+            },
+            {
+              "id": "68602",
+              "name": {
+                "value": "Matthias Hiller"
+              }
+            },
+            {
+              "id": "68743",
+              "name": {
+                "value": "Matthias Miersch"
+              }
+            },
+            {
+              "id": "68744",
+              "name": {
+                "value": "Matthias Mieves"
+              }
+            },
+            {
+              "id": "68751",
+              "name": {
+                "value": "Matthias Moosdorf"
+              }
+            },
+            {
+              "id": "68823",
+              "name": {
+                "value": "Matthias Rentzsch"
+              }
+            },
+            {
+              "id": "68712",
+              "name": {
+                "value": "Max Lucks"
+              }
+            },
+            {
+              "id": "68655",
+              "name": {
+                "value": "Maximilian Kneller"
+              }
+            },
+            {
+              "id": "68669",
+              "name": {
+                "value": "Maximilian Krah"
+              }
+            },
+            {
+              "id": "69047",
+              "name": {
+                "value": "Mayra Vriesema"
+              }
+            },
+            {
+              "id": "68583",
+              "name": {
+                "value": "Mechthild Heil"
+              }
+            },
+            {
+              "id": "68985",
+              "name": {
+                "value": "Mechthilde Wittmann"
+              }
+            },
+            {
+              "id": "68419",
+              "name": {
+                "value": "Melanie Bernstein"
+              }
+            },
+            {
+              "id": "68576",
+              "name": {
+                "value": "Metin Hakverdi"
+              }
+            },
+            {
+              "id": "68517",
+              "name": {
+                "value": "Micha Fehre"
+              }
+            },
+            {
+              "id": "68390",
+              "name": {
+                "value": "Michael „Moses“ Arndt"
+              }
+            },
+            {
+              "id": "68431",
+              "name": {
+                "value": "Michael Blos"
+              }
+            },
+            {
+              "id": "68444",
+              "name": {
+                "value": "Michael Brand"
+              }
+            },
+            {
+              "id": "70563",
+              "name": {
+                "value": "Michael Breilmann"
+              }
+            },
+            {
+              "id": "68486",
+              "name": {
+                "value": "Michael Donth"
+              }
+            },
+            {
+              "id": "68513",
+              "name": {
+                "value": "Michael Espendiller"
+              }
+            },
+            {
+              "id": "68529",
+              "name": {
+                "value": "Michael Frieser"
+              }
+            },
+            {
+              "id": "68612",
+              "name": {
+                "value": "Michael Hose"
+              }
+            },
+            {
+              "id": "68637",
+              "name": {
+                "value": "Michael Kaufmann"
+              }
+            },
+            {
+              "id": "68638",
+              "name": {
+                "value": "Michael Kellner"
+              }
+            },
+            {
+              "id": "68646",
+              "name": {
+                "value": "Michael Kießling"
+              }
+            },
+            {
+              "id": "68735",
+              "name": {
+                "value": "Michael Meister"
+              }
+            },
+            {
+              "id": "68876",
+              "name": {
+                "value": "Michael Schrodi"
+              }
+            },
+            {
+              "id": "68932",
+              "name": {
+                "value": "Michael Thews"
+              }
+            },
+            {
+              "id": "68577",
+              "name": {
+                "value": "Mirco Hanker"
+              }
+            },
+            {
+              "id": "68502",
+              "name": {
+                "value": "Mirze Edis"
+              }
+            },
+            {
+              "id": "68644",
+              "name": {
+                "value": "Misbah Khan"
+              }
+            },
+            {
+              "id": "68599",
+              "name": {
+                "value": "Moritz Heuberger"
+              }
+            },
+            {
+              "id": "68595",
+              "name": {
+                "value": "Nadine Heselhaus"
+              }
+            },
+            {
+              "id": "68514",
+              "name": {
+                "value": "Nancy Faeser"
+              }
+            },
+            {
+              "id": "68788",
+              "name": {
+                "value": "Natalie Pawlik"
+              }
+            },
+            {
+              "id": "68632",
+              "name": {
+                "value": "Nicklas Kappe"
+              }
+            },
+            {
+              "id": "68998",
+              "name": {
+                "value": "Nicolas Zippelius"
+              }
+            },
+            {
+              "id": "68549",
+              "name": {
+                "value": "Nicole Gohlke"
+              }
+            },
+            {
+              "id": "68597",
+              "name": {
+                "value": "Nicole Hess"
+              }
+            },
+            {
+              "id": "68617",
+              "name": {
+                "value": "Nicole Höchst"
+              }
+            },
+            {
+              "id": "68957",
+              "name": {
+                "value": "Niklas Wagener"
+              }
+            },
+            {
+              "id": "68860",
+              "name": {
+                "value": "Nils Schmid"
+              }
+            },
+            {
+              "id": "68850",
+              "name": {
+                "value": "Nina Scheer"
+              }
+            },
+            {
+              "id": "68965",
+              "name": {
+                "value": "Nina Warken"
+              }
+            },
+            {
+              "id": "68896",
+              "name": {
+                "value": "Nora Seitz"
+              }
+            },
+            {
+              "id": "68387",
+              "name": {
+                "value": "Norbert Maria Altenkamp"
+              }
+            },
+            {
+              "id": "68839",
+              "name": {
+                "value": "Norbert Röttgen"
+              }
+            },
+            {
+              "id": "68901",
+              "name": {
+                "value": "Nyke Slawik"
+              }
+            },
+            {
+              "id": "68603",
+              "name": {
+                "value": "Olaf Hilmer"
+              }
+            },
+            {
+              "id": "68873",
+              "name": {
+                "value": "Olaf Scholz"
+              }
+            },
+            {
+              "id": "68561",
+              "name": {
+                "value": "Olav Gutting"
+              }
+            },
+            {
+              "id": "68628",
+              "name": {
+                "value": "Oliver Kaczmarek"
+              }
+            },
+            {
+              "id": "68803",
+              "name": {
+                "value": "Oliver Pöpsel"
+              }
+            },
+            {
+              "id": "68949",
+              "name": {
+                "value": "Oliver Vogt"
+              }
+            },
+            {
+              "id": "68772",
+              "name": {
+                "value": "Omid Nouripour"
+              }
+            },
+            {
+              "id": "68768",
+              "name": {
+                "value": "Ophelia Nick"
+              }
+            },
+            {
+              "id": "68649",
+              "name": {
+                "value": "Ottilie Klein"
+              }
+            },
+            {
+              "id": "68922",
+              "name": {
+                "value": "Otto Strauß"
+              }
+            },
+            {
+              "id": "68724",
+              "name": {
+                "value": "Parsa Marvi"
+              }
+            },
+            {
+              "id": "68734",
+              "name": {
+                "value": "Pascal Meiser"
+              }
+            },
+            {
+              "id": "68813",
+              "name": {
+                "value": "Pascal Reddig"
+              }
+            },
+            {
+              "id": "68709",
+              "name": {
+                "value": "Patricia Lips"
+              }
+            },
+            {
+              "id": "68871",
+              "name": {
+                "value": "Patrick Schnieder"
+              }
+            },
+            {
+              "id": "68865",
+              "name": {
+                "value": "Paul Schmidt"
+              }
+            },
+            {
+              "id": "68995",
+              "name": {
+                "value": "Paul Ziemiak"
+              }
+            },
+            {
+              "id": "68792",
+              "name": {
+                "value": "Paula Piechotta"
+              }
+            },
+            {
+              "id": "68396",
+              "name": {
+                "value": "Peter Aumer"
+              }
+            },
+            {
+              "id": "68423",
+              "name": {
+                "value": "Peter Beyer"
+              }
+            },
+            {
+              "id": "68435",
+              "name": {
+                "value": "Peter Boehringer"
+              }
+            },
+            {
+              "id": "68436",
+              "name": {
+                "value": "Peter Bohnhof"
+              }
+            },
+            {
+              "id": "68519",
+              "name": {
+                "value": "Peter Felser"
+              }
+            },
+            {
+              "id": "68607",
+              "name": {
+                "value": "Philip Hoffmann"
+              }
+            },
+            {
+              "id": "68388",
+              "name": {
+                "value": "Philipp Amthor"
+              }
+            },
+            {
+              "id": "68832",
+              "name": {
+                "value": "Philipp Rottwilm"
+              }
+            },
+            {
+              "id": "68689",
+              "name": {
+                "value": "Pierre Lamely"
+              }
+            },
+            {
+              "id": "68851",
+              "name": {
+                "value": "Raimond Scheirich"
+              }
+            },
+            {
+              "id": "68533",
+              "name": {
+                "value": "Rainer Galla"
+              }
+            },
+            {
+              "id": "68558",
+              "name": {
+                "value": "Rainer Gross"
+              }
+            },
+            {
+              "id": "68668",
+              "name": {
+                "value": "Rainer Kraft"
+              }
+            },
+            {
+              "id": "68831",
+              "name": {
+                "value": "Rainer Rothfuß"
+              }
+            },
+            {
+              "id": "68911",
+              "name": {
+                "value": "Ralf Stegner"
+              }
+            },
+            {
+              "id": "68451",
+              "name": {
+                "value": "Ralph Brinkhaus"
+              }
+            },
+            {
+              "id": "68501",
+              "name": {
+                "value": "Ralph Edelhäußer"
+              }
+            },
+            {
+              "id": "68765",
+              "name": {
+                "value": "Rasha Nasr"
+              }
+            },
+            {
+              "id": "68701",
+              "name": {
+                "value": "Rebecca Lenhard"
+              }
+            },
+            {
+              "id": "68384",
+              "name": {
+                "value": "Reem Alabali Radovan"
+              }
+            },
+            {
+              "id": "68446",
+              "name": {
+                "value": "Reinhard Brandl"
+              }
+            },
+            {
+              "id": "68749",
+              "name": {
+                "value": "Reinhard Mixl"
+              }
+            },
+            {
+              "id": "68432",
+              "name": {
+                "value": "René Bochmann"
+              }
+            },
+            {
+              "id": "68904",
+              "name": {
+                "value": "René Springer"
+              }
+            },
+            {
+              "id": "69042",
+              "name": {
+                "value": "Reza Asghari"
+              }
+            },
+            {
+              "id": "68690",
+              "name": {
+                "value": "Ricarda Lang"
+              }
+            },
+            {
+              "id": "68886",
+              "name": {
+                "value": "Rita Schwarzelühr-Sutter"
+              }
+            },
+            {
+              "id": "68929",
+              "name": {
+                "value": "Robert Teske"
+              }
+            },
+            {
+              "id": "68627",
+              "name": {
+                "value": "Robin Jünger"
+              }
+            },
+            {
+              "id": "68958",
+              "name": {
+                "value": "Robin Wagener"
+              }
+            },
+            {
+              "id": "68643",
+              "name": {
+                "value": "Rocco Kever"
+              }
+            },
+            {
+              "id": "68645",
+              "name": {
+                "value": "Roderich Kiesewetter"
+              }
+            },
+            {
+              "id": "68930",
+              "name": {
+                "value": "Roland Theis"
+              }
+            },
+            {
+              "id": "68762",
+              "name": {
+                "value": "Rolf Mützenich"
+              }
+            },
+            {
+              "id": "68546",
+              "name": {
+                "value": "Ronald Gläser"
+              }
+            },
+            {
+              "id": "68837",
+              "name": {
+                "value": "Ruben Rupp"
+              }
+            },
+            {
+              "id": "68711",
+              "name": {
+                "value": "Rüdiger Lucassen"
+              }
+            },
+            {
+              "id": "68925",
+              "name": {
+                "value": "Ruppert Stüwe"
+              }
+            },
+            {
+              "id": "68484",
+              "name": {
+                "value": "Sabine Dittmar"
+              }
+            },
+            {
+              "id": "68799",
+              "name": {
+                "value": "Sabine Poschmann"
+              }
+            },
+            {
+              "id": "68748",
+              "name": {
+                "value": "Sahra Mirow"
+              }
+            },
+            {
+              "id": "68376",
+              "name": {
+                "value": "Sanae Abdi"
+              }
+            },
+            {
+              "id": "68467",
+              "name": {
+                "value": "Sandra Carstensen"
+              }
+            },
+            {
+              "id": "68479",
+              "name": {
+                "value": "Sandra Detzer"
+              }
+            },
+            {
+              "id": "68912",
+              "name": {
+                "value": "Sandra Stein"
+              }
+            },
+            {
+              "id": "68764",
+              "name": {
+                "value": "Sara Nanni"
+              }
+            },
+            {
+              "id": "68952",
+              "name": {
+                "value": "Sarah Vollath"
+              }
+            },
+            {
+              "id": "68702",
+              "name": {
+                "value": "Sascha Lensing"
+              }
+            },
+            {
+              "id": "68759",
+              "name": {
+                "value": "Sascha Müller"
+              }
+            },
+            {
+              "id": "68415",
+              "name": {
+                "value": "Sascha van Beek"
+              }
+            },
+            {
+              "id": "68961",
+              "name": {
+                "value": "Sascha Wagner"
+              }
+            },
+            {
+              "id": "68512",
+              "name": {
+                "value": "Saskia Esken"
+              }
+            },
+            {
+              "id": "68715",
+              "name": {
+                "value": "Saskia Ludwig"
+              }
+            },
+            {
+              "id": "68535",
+              "name": {
+                "value": "Schahina Gambir"
+              }
+            },
+            {
+              "id": "68523",
+              "name": {
+                "value": "Sebastian Fiedler"
+              }
+            },
+            {
+              "id": "68579",
+              "name": {
+                "value": "Sebastian Hartmann"
+              }
+            },
+            {
+              "id": "68718",
+              "name": {
+                "value": "Sebastian Maack"
+              }
+            },
+            {
+              "id": "68761",
+              "name": {
+                "value": "Sebastian Münzenmaier"
+              }
+            },
+            {
+              "id": "68828",
+              "name": {
+                "value": "Sebastian Roloff"
+              }
+            },
+            {
+              "id": "68889",
+              "name": {
+                "value": "Sebastian Schäfer"
+              }
+            },
+            {
+              "id": "68866",
+              "name": {
+                "value": "Sebastian Schmidt"
+              }
+            },
+            {
+              "id": "68913",
+              "name": {
+                "value": "Sebastian Steineke"
+              }
+            },
+            {
+              "id": "68760",
+              "name": {
+                "value": "Sepp Müller"
+              }
+            },
+            {
+              "id": "68565",
+              "name": {
+                "value": "Serap Güler"
+              }
+            },
+            {
+              "id": "68989",
+              "name": {
+                "value": "Serdar Yüksel"
+              }
+            },
+            {
+              "id": "68747",
+              "name": {
+                "value": "Sergej Minich"
+              }
+            },
+            {
+              "id": "68962",
+              "name": {
+                "value": "Siegfried Walch"
+              }
+            },
+            {
+              "id": "68656",
+              "name": {
+                "value": "Sieghard Knodel"
+              }
+            },
+            {
+              "id": "68753",
+              "name": {
+                "value": "Siemtje Möller"
+              }
+            },
+            {
+              "id": "68694",
+              "name": {
+                "value": "Silke Launert"
+              }
+            },
+            {
+              "id": "68449",
+              "name": {
+                "value": "Silvia Breher"
+              }
+            },
+            {
+              "id": "68439",
+              "name": {
+                "value": "Simone Borchardt"
+              }
+            },
+            {
+              "id": "68525",
+              "name": {
+                "value": "Simone Fischer"
+              }
+            },
+            {
+              "id": "68504",
+              "name": {
+                "value": "Sonja Eichwede"
+              }
+            },
+            {
+              "id": "68699",
+              "name": {
+                "value": "Sonja Lemke"
+              }
+            },
+            {
+              "id": "68405",
+              "name": {
+                "value": "Sören Bartol"
+              }
+            },
+            {
+              "id": "68790",
+              "name": {
+                "value": "Sören Pellmann"
+              }
+            },
+            {
+              "id": "70561",
+              "name": {
+                "value": "Stefan Glaser"
+              }
+            },
+            {
+              "id": "68592",
+              "name": {
+                "value": "Stefan Henze"
+              }
+            },
+            {
+              "id": "68642",
+              "name": {
+                "value": "Stefan Keuter"
+              }
+            },
+            {
+              "id": "68664",
+              "name": {
+                "value": "Stefan Korbach"
+              }
+            },
+            {
+              "id": "68754",
+              "name": {
+                "value": "Stefan Möller"
+              }
+            },
+            {
+              "id": "68763",
+              "name": {
+                "value": "Stefan Nacke"
+              }
+            },
+            {
+              "id": "68833",
+              "name": {
+                "value": "Stefan Rouenhoff"
+              }
+            },
+            {
+              "id": "68867",
+              "name": {
+                "value": "Stefan Schmidt"
+              }
+            },
+            {
+              "id": "68878",
+              "name": {
+                "value": "Stefan Schröder"
+              }
+            },
+            {
+              "id": "68884",
+              "name": {
+                "value": "Stefan Schwartze"
+              }
+            },
+            {
+              "id": "68893",
+              "name": {
+                "value": "Stefan Seidler"
+              }
+            },
+            {
+              "id": "68996",
+              "name": {
+                "value": "Stefan Zierke"
+              }
+            },
+            {
+              "id": "68425",
+              "name": {
+                "value": "Steffen Bilger"
+              }
+            },
+            {
+              "id": "68620",
+              "name": {
+                "value": "Steffen Janich"
+              }
+            },
+            {
+              "id": "68666",
+              "name": {
+                "value": "Steffen Kotré"
+              }
+            },
+            {
+              "id": "68700",
+              "name": {
+                "value": "Steffi Lemke"
+              }
+            },
+            {
+              "id": "68736",
+              "name": {
+                "value": "Stella Merendino"
+              }
+            },
+            {
+              "id": "68385",
+              "name": {
+                "value": "Stephan Albani"
+              }
+            },
+            {
+              "id": "68447",
+              "name": {
+                "value": "Stephan Brandner"
+              }
+            },
+            {
+              "id": "68729",
+              "name": {
+                "value": "Stephan Mayer"
+              }
+            },
+            {
+              "id": "68793",
+              "name": {
+                "value": "Stephan Pilsinger"
+              }
+            },
+            {
+              "id": "68801",
+              "name": {
+                "value": "Stephan Protschka"
+              }
+            },
+            {
+              "id": "68920",
+              "name": {
+                "value": "Stephan Stracke"
+              }
+            },
+            {
+              "id": "68601",
+              "name": {
+                "value": "Susanne Hierl"
+              }
+            },
+            {
+              "id": "68698",
+              "name": {
+                "value": "Sven Lehmann"
+              }
+            },
+            {
+              "id": "68972",
+              "name": {
+                "value": "Sven Wendorf"
+              }
+            },
+            {
+              "id": "68882",
+              "name": {
+                "value": "Svenja Schulze"
+              }
+            },
+            {
+              "id": "68905",
+              "name": {
+                "value": "Svenja Stadler"
+              }
+            },
+            {
+              "id": "68740",
+              "name": {
+                "value": "Swantje Michaelsen"
+              }
+            },
+            {
+              "id": "68824",
+              "name": {
+                "value": "Sylvia Rietenberg"
+              }
+            },
+            {
+              "id": "68732",
+              "name": {
+                "value": "Tamara Mazzi"
+              }
+            },
+            {
+              "id": "68719",
+              "name": {
+                "value": "Tanja Machalet"
+              }
+            },
+            {
+              "id": "68383",
+              "name": {
+                "value": "Tarek Al-Wazir"
+              }
+            },
+            {
+              "id": "68404",
+              "name": {
+                "value": "Thomas Bareiß"
+              }
+            },
+            {
+              "id": "68481",
+              "name": {
+                "value": "Thomas Dietz"
+              }
+            },
+            {
+              "id": "68509",
+              "name": {
+                "value": "Thomas Erndl"
+              }
+            },
+            {
+              "id": "68521",
+              "name": {
+                "value": "Thomas Fetsch"
+              }
+            },
+            {
+              "id": "68540",
+              "name": {
+                "value": "Thomas Gebhart"
+              }
+            },
+            {
+              "id": "68622",
+              "name": {
+                "value": "Thomas Jarzombek"
+              }
+            },
+            {
+              "id": "68665",
+              "name": {
+                "value": "Thomas Korell"
+              }
+            },
+            {
+              "id": "68688",
+              "name": {
+                "value": "Thomas Ladzinski"
+              }
+            },
+            {
+              "id": "68786",
+              "name": {
+                "value": "Thomas Pauls"
+              }
+            },
+            {
+              "id": "68806",
+              "name": {
+                "value": "Thomas Rachel"
+              }
+            },
+            {
+              "id": "68840",
+              "name": {
+                "value": "Thomas Röwekamp"
+              }
+            },
+            {
+              "id": "68899",
+              "name": {
+                "value": "Thomas Silberhorn"
+              }
+            },
+            {
+              "id": "68916",
+              "name": {
+                "value": "Thomas Stephan"
+              }
+            },
+            {
+              "id": "68528",
+              "name": {
+                "value": "Thorsten Frei"
+              }
+            },
+            {
+              "id": "68834",
+              "name": {
+                "value": "Thorsten Rudolph"
+              }
+            },
+            {
+              "id": "68393",
+              "name": {
+                "value": "Tijen Ataoğlu"
+              }
+            },
+            {
+              "id": "68908",
+              "name": {
+                "value": "Till Steffen"
+              }
+            },
+            {
+              "id": "68677",
+              "name": {
+                "value": "Tilman Kuban"
+              }
+            },
+            {
+              "id": "68654",
+              "name": {
+                "value": "Tim Klüssendorf"
+              }
+            },
+            {
+              "id": "68493",
+              "name": {
+                "value": "Timon Dzienus"
+              }
+            },
+            {
+              "id": "68983",
+              "name": {
+                "value": "Tina Winklmann"
+              }
+            },
+            {
+              "id": "68470",
+              "name": {
+                "value": "Tino Chrupalla"
+              }
+            },
+            {
+              "id": "68902",
+              "name": {
+                "value": "Tino Sorge"
+              }
+            },
+            {
+              "id": "68497",
+              "name": {
+                "value": "Tobias Ebenberger"
+              }
+            },
+            {
+              "id": "68791",
+              "name": {
+                "value": "Tobias Matthias Peterka"
+              }
+            },
+            {
+              "id": "68927",
+              "name": {
+                "value": "Tobias Teich"
+              }
+            },
+            {
+              "id": "68982",
+              "name": {
+                "value": "Tobias Winkler"
+              }
+            },
+            {
+              "id": "68443",
+              "name": {
+                "value": "Torben Braga"
+              }
+            },
+            {
+              "id": "68817",
+              "name": {
+                "value": "Truels Reichardt"
+              }
+            },
+            {
+              "id": "68590",
+              "name": {
+                "value": "Udo Hemmelgarn"
+              }
+            },
+            {
+              "id": "68849",
+              "name": {
+                "value": "Ulle Schauws"
+              }
+            },
+            {
+              "id": "68691",
+              "name": {
+                "value": "Ulrich Lange"
+              }
+            },
+            {
+              "id": "68933",
+              "name": {
+                "value": "Ulrich Thoden"
+              }
+            },
+            {
+              "id": "69001",
+              "name": {
+                "value": "Ulrich von Zons"
+              }
+            },
+            {
+              "id": "68854",
+              "name": {
+                "value": "Ulrike Schielke-Ziesing"
+              }
+            },
+            {
+              "id": "68518",
+              "name": {
+                "value": "Uwe Feiler"
+              }
+            },
+            {
+              "id": "68868",
+              "name": {
+                "value": "Uwe Schmidt"
+              }
+            },
+            {
+              "id": "68881",
+              "name": {
+                "value": "Uwe Schulz"
+              }
+            },
+            {
+              "id": "69000",
+              "name": {
+                "value": "Vanessa-Kim Zobel"
+              }
+            },
+            {
+              "id": "68615",
+              "name": {
+                "value": "Verena Hubertz"
+              }
+            },
+            {
+              "id": "68454",
+              "name": {
+                "value": "Victoria Broßart"
+              }
+            },
+            {
+              "id": "68545",
+              "name": {
+                "value": "Vinzenz Glaser"
+              }
+            },
+            {
+              "id": "68433",
+              "name": {
+                "value": "Violetta Bock"
+              }
+            },
+            {
+              "id": "68926",
+              "name": {
+                "value": "Vivian Tauschwitz"
+              }
+            },
+            {
+              "id": "68731",
+              "name": {
+                "value": "Volker Mayer-Lay"
+              }
+            },
+            {
+              "id": "68853",
+              "name": {
+                "value": "Volker Scheurell"
+              }
+            },
+            {
+              "id": "68511",
+              "name": {
+                "value": "Wiebke Esdar"
+              }
+            },
+            {
+              "id": "68773",
+              "name": {
+                "value": "Wilfried Oellers"
+              }
+            },
+            {
+              "id": "68539",
+              "name": {
+                "value": "Wilhelm Gebhard"
+              }
+            },
+            {
+              "id": "68475",
+              "name": {
+                "value": "Wolfgang Dahler"
+              }
+            },
+            {
+              "id": "68909",
+              "name": {
+                "value": "Wolfgang Stefinger"
+              }
+            },
+            {
+              "id": "68975",
+              "name": {
+                "value": "Wolfgang Wiehle"
+              }
+            },
+            {
+              "id": "68459",
+              "name": {
+                "value": "Yannick Bury"
+              }
+            },
+            {
+              "id": "68845",
+              "name": {
+                "value": "Zada Salihović"
+              }
+            },
+            {
+              "id": "68730",
+              "name": {
+                "value": "Zoe Mayer"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "DeputyIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.DeputyIntent.Deputy"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AnswersIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.AnswersIntent.Deputy"
+              }
+            }
+          ]
+        },
+        {
+          "name": "VotesIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.VotesIntent.Deputy"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CommitteesIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.CommitteesIntent.Deputy"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SidejobsIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "deputy",
+              "type": "LIST_OF_DEPUTIES",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.SidejobsIntent.Deputy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.DeputyIntent.Deputy",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Welcher Abgeordnete?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.AnswersIntent.Deputy",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Welcher Abgeordnete?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.VotesIntent.Deputy",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Welcher Abgeordnete?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.CommitteesIntent.Deputy",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Welcher Abgeordnete?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.SidejobsIntent.Deputy",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Welcher Abgeordnete?"
+          }
+        ]
+      }
+    ]
+  }
+}

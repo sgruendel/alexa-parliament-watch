@@ -60,5 +60,6 @@ typings/
 # next.js build output
 .next
 
-# Deployment artifacts
-index.zip
+# Deployment and local ASK CLI state
+.ask/
+*.zip

@@ -1,0 +1,28 @@
+name: Abgeordnetenwatch API contract
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: lambda
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+      - uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('lambda/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - run: mise exec -- npm ci
+      - run: mise exec -- npm run test:contract

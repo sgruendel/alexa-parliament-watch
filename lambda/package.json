@@ -1,0 +1,78 @@
+{
+    "name": "alexa-parliament-watch",
+    "version": "2.0.0",
+    "description": "Alexa skill for accessing open parliament data from abgeordnetenwatch.de",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "create-model": "node scripts/create-model.js",
+        "model:deploy": "node --env-file-if-exists=.env scripts/deploy-model.js",
+        "lambda:zip": "rm -f /tmp/parliamentWatch.zip && zip -r /tmp/parliamentWatch.zip node_modules/ package* *.js -x output.json",
+        "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name parliamentWatch --zip-file fileb:///tmp/parliamentWatch.zip",
+        "test:unit": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/unit/**/*.js\"",
+        "test:integration": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/integration/**/*.js\"",
+        "test:contract": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=30000 \"test/contract/**/*.js\"",
+        "test": "node --import ./test/env.js ./node_modules/c8/bin/c8.js mocha --timeout=7000 --file test/setup.js \"test/unit/**/*.js\" \"test/integration/**/*.js\"",
+        "lint": "eslint ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sgruendel/alexa-parliament-watch.git"
+    },
+    "keywords": [
+        "alexa",
+        "skill",
+        "abgeordnetenwatch",
+        "parliament",
+        "watch"
+    ],
+    "author": "Stefan Gründel",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/sgruendel/alexa-parliament-watch/issues"
+    },
+    "homepage": "https://github.com/sgruendel/alexa-parliament-watch#readme",
+    "dependencies": {
+        "ask-sdk-core": "^2.14.0",
+        "ask-sdk-model": "^1.86.0",
+        "i18next": "^26.4.2",
+        "i18next-sprintf-postprocessor": "^0.2.2",
+        "node-fetch": "^3.3.2",
+        "winston": "^3.19.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/chai": "^5.2.3",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^24.13.3",
+        "c8": "^12.0.0",
+        "chai": "^6.2.2",
+        "eslint": "^10.10.0",
+        "globals": "^17.12.0",
+        "mocha": "^12.0.1",
+        "nock": "^14.0.17"
+    },
+    "c8": {
+        "all": true,
+        "include": [
+            "abgeordnetenwatch.js",
+            "handlers.js",
+            "index.js",
+            "presentation.js",
+            "request-budget.js",
+            "slot-resolution.js"
+        ],
+        "reporter": [
+            "lcov",
+            "text"
+        ],
+        "check-coverage": true,
+        "lines": 90,
+        "statements": 90,
+        "functions": 90,
+        "branches": 85
+    },
+    "engines": {
+        "node": "24.x"
+    }
+}
