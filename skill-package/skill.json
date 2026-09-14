@@ -1,0 +1,49 @@
+{
+    "manifest": {
+        "apis": {
+            "custom": {
+                "endpoint": {
+                    "uri": "arn:aws:lambda:eu-west-1:467353799488:function:parliamentWatch"
+                },
+                "interfaces": []
+            }
+        },
+        "manifestVersion": "1.0",
+        "permissions": [],
+        "privacyAndCompliance": {
+            "allowsPurchases": false,
+            "containsAds": false,
+            "isChildDirected": false,
+            "isExportCompliant": true,
+            "locales": {
+                "de-DE": {}
+            },
+            "usesPersonalInfo": false
+        },
+        "publishingInformation": {
+            "category": "EDUCATION_AND_REFERENCE",
+            "distributionCountries": [],
+            "isAvailableWorldwide": true,
+            "locales": {
+                "de-DE": {
+                    "summary": "Informationen über die Mitglieder des Deutschen Bundestags.",
+                    "examplePhrases": [
+                        "Alexa, starte Abgeordneten Watch",
+                        "Alexa, frage Abgeordneten Watch nach Friedrich Merz",
+                        "Alexa, frage Abgeordneten Watch nach Abstimmungen von Heidi Reichinnek"
+                    ],
+                    "keywords": [
+                        "bundestag",
+                        "abgeordnetenwatch",
+                        "politik"
+                    ],
+                    "name": "Abgeordneten Watch",
+                    "smallIconUri": "file://assets/small_icon.png",
+                    "largeIconUri": "file://assets/large_icon.jpg",
+                    "description": "Zugriff auf Profildaten, Fragen und Antworten, Abstimmungsverhalten, Ausschussmitgliedschaften und Nebentätigkeiten der Mitglieder des aktuellen Deutschen Bundestags. Die Daten stammen aus der Abgeordnetenwatch API v2.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-parliament-watch/issues/new."
+                }
+            },
+            "testingInstructions": "Daten können unter https://www.abgeordnetenwatch.de/ überprüft werden."
+        }
+    }
+}
