@@ -44,7 +44,7 @@
   "devDependencies": {
     "alexa-skill-test-framework": "1.2.4",
     "chai": "4.2.0",
-    "eslint": "7.5.0",
+    "eslint": "10.10.0",
     "eslint-config-strongloop": "2.1.0",
     "mocha": "8.0.1",
     "nyc": "15.1.0"
