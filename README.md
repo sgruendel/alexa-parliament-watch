@@ -33,6 +33,7 @@ npm run skill:deploy
 Before the first deployment, run `ask configure` to authenticate the ASK CLI `default` profile. Without an activated
 Mise shell, use `mise exec -- ask configure` and `mise exec -- npm run skill:deploy`. The deployment command initializes
 ASK CLI's ignored project state from `SKILL_ID` and refuses to deploy if existing state targets a different skill.
+ASK CLI reuses the existing `parliamentWatch` Lambda configured as `sourceLambda` in `ask-resources.json`.
 Use `npm run model:deploy` only when deploying the interaction model without the Lambda or skill manifest.
 
 ## Testing
