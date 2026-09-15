@@ -23,5 +23,7 @@ The Lambda gives all API calls within one Alexa request a shared six-second budg
 interaction model and verify launch, help, stop, ambiguous names, unknown names, and every data intent on a real
 voice device or in the Alexa developer console.
 
-For model deployment, run `ask configure` once to authenticate the `default` profile, then run
-`npm run model:deploy`. Without an activated Mise shell, use `mise exec --` for both commands.
+For deployment, run `ask configure` once to authenticate the `default` profile, then run `npm run skill:deploy` to
+deploy the Lambda, skill manifest, and interaction model. The deployment script initializes ASK CLI's ignored
+`.ask/ask-states.json` from `SKILL_ID` and rejects a conflicting existing target. Use `npm run model:deploy` only for
+a model-only deployment. Without an activated Mise shell, use `mise exec --` for these commands.

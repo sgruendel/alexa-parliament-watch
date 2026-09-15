@@ -7,6 +7,7 @@
     "scripts": {
         "create-model": "node scripts/create-model.js",
         "model:deploy": "node --env-file-if-exists=.env scripts/deploy-model.js",
+        "skill:deploy": "node --env-file-if-exists=.env scripts/deploy-skill.js",
         "lambda:zip": "rm -f /tmp/parliamentWatch.zip && zip -r /tmp/parliamentWatch.zip node_modules/ package* *.js -x output.json",
         "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name parliamentWatch --zip-file fileb:///tmp/parliamentWatch.zip",
         "test:unit": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/unit/**/*.js\"",
