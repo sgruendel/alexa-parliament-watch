@@ -39,7 +39,7 @@
                     ],
                     "name": "Abgeordneten Watch",
                     "smallIconUri": "file://assets/small_icon.png",
-                    "largeIconUri": "file://assets/large_icon.jpg",
+                    "largeIconUri": "file://assets/large_icon.png",
                     "description": "Zugriff auf Profildaten, Fragen und Antworten, Abstimmungsverhalten, Ausschussmitgliedschaften und Nebentätigkeiten der Mitglieder des aktuellen Deutschen Bundestags. Die Daten stammen aus der Abgeordnetenwatch API v2.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-parliament-watch/issues/new."
                 }
             },
