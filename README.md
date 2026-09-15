@@ -16,7 +16,8 @@ the current German Bundestag. Data comes from the
 
 ## Configuration
 
-Install Node.js 24 with `mise install`. Commands are run from `lambda/`.
+Install Node.js 24 and ASK CLI with `mise install`. With Mise activated in your shell, commands are run from
+`lambda/`; otherwise prefix them with `mise exec --`.
 Copy `.env.example` to `.env` and set `SKILL_ID` for model deployment. The deployed Lambda function must provide the
 same environment variable. Offline tests inject a dummy value.
 
@@ -28,6 +29,9 @@ npm ci
 npm run create-model
 npm run model:deploy
 ```
+
+Before the first deployment, run `ask configure` to authenticate the ASK CLI `default` profile. Without an activated
+Mise shell, use `mise exec -- ask configure` and `mise exec -- npm run model:deploy`.
 
 ## Testing
 

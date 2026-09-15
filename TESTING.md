@@ -1,7 +1,8 @@
 # Testing Abgeordneten Watch
 
-Run `mise install` from the repository root to install Node.js 24, matching the Lambda runtime in
-`ask-resources.json`. Run the commands below from `lambda/` after `npm ci`.
+Run `mise install` from the repository root to install Node.js 24 and ASK CLI 2.30.7. This matches the Lambda runtime
+in `ask-resources.json` and pins the deployment CLI. With Mise activated in your shell, run the commands below from
+`lambda/` after `npm ci`; otherwise prefix commands with `mise exec --`.
 
 | Command | Scope | External access |
 | --- | --- | --- |
@@ -21,3 +22,6 @@ or on demand, so an upstream outage does not fail ordinary pull requests.
 The Lambda gives all API calls within one Alexa request a shared six-second budget. Before release, regenerate the
 interaction model and verify launch, help, stop, ambiguous names, unknown names, and every data intent on a real
 voice device or in the Alexa developer console.
+
+For model deployment, run `ask configure` once to authenticate the `default` profile, then run
+`npm run model:deploy`. Without an activated Mise shell, use `mise exec --` for both commands.
